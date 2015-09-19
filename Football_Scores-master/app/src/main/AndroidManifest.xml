@@ -23,6 +23,7 @@
 
         <provider
             android:name=".ScoresProvider"
+            android:exported="false"
             android:authorities="barqsoft.footballscores" />
 
         <activity
