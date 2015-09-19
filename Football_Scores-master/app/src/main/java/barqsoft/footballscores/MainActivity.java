@@ -65,7 +65,7 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        Log.v(save_tag, "will retrive");
+        Log.v(save_tag, "will retrieve");
         Log.v(save_tag, "fragment: " + String.valueOf(savedInstanceState.getInt("Pager_Current")));
         Log.v(save_tag, "selected id: " + savedInstanceState.getInt("Selected_match"));
         current_fragment = savedInstanceState.getInt("Pager_Current");
