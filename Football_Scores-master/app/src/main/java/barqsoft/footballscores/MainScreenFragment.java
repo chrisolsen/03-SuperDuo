@@ -65,12 +65,6 @@ public class MainScreenFragment extends Fragment implements LoaderManager.Loader
 
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
-        int i = 0;
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            i++;
-            cursor.moveToNext();
-        }
         mAdapter.swapCursor(cursor);
     }
 
