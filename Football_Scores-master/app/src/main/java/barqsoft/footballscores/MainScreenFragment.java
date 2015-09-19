@@ -19,7 +19,7 @@ import barqsoft.footballscores.service.myFetchService;
  * A placeholder fragment containing a simple view.
  */
 public class MainScreenFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
-    public scoresAdapter mAdapter;
+    public ScoresAdapter mAdapter;
     public static final int SCORES_LOADER = 0;
     private String[] fragmentDate = new String[1];
 
@@ -41,14 +41,14 @@ public class MainScreenFragment extends Fragment implements LoaderManager.Loader
         update_scores();
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         final ListView score_list = (ListView) rootView.findViewById(R.id.scores_list);
-        mAdapter = new scoresAdapter(getActivity(), null, 0);
+        mAdapter = new ScoresAdapter(getActivity(), null, 0);
         score_list.setAdapter(mAdapter);
         getLoaderManager().initLoader(SCORES_LOADER, null, this);
         mAdapter.detailMatchId = MainActivity.selected_match_id;
         score_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ViewHolder selected = (ViewHolder) view.getTag();
+                ScoresAdapter.ViewHolder selected = (ScoresAdapter.ViewHolder) view.getTag();
                 mAdapter.detailMatchId = selected.matchId;
                 MainActivity.selected_match_id = (int) selected.matchId;
                 mAdapter.notifyDataSetChanged();
