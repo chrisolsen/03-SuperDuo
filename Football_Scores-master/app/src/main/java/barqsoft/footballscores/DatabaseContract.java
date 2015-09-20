@@ -19,6 +19,9 @@ public class DatabaseContract {
         public static final String MATCH_ID = "match_id";
         public static final String MATCH_DAY = "match_day";
 
+        public static final String HOME_LOGO_URL = "match_day";
+        public static final String AWAY_LOGO_URL = "match_day";
+
         //Types
         public static final String CONTENT_TYPE =
                 ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH;
