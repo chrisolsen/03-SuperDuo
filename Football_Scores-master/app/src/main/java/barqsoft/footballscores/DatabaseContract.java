@@ -5,7 +5,7 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 
 public class DatabaseContract {
-    public static final String SCORES_TABLE = "ScoresTable";
+    public static final String SCORES_TABLE = "scores";
 
     public static final class ScoresTable implements BaseColumns {
         //Table data

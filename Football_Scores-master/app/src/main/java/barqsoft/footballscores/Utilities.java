@@ -1,5 +1,7 @@
 package barqsoft.footballscores;
 
+import android.content.Context;
+
 public class Utilities {
     public static final int SERIES_A = 357;
     public static final int PREMIER_LEAGUE = 354;
@@ -7,8 +9,8 @@ public class Utilities {
     public static final int PRIMERA_DIVISION = 358;
     public static final int BUNDESLIGA = 351;
 
-    public static String getLeague(int league_num) {
-        switch (league_num) {
+    public static String getLeague(Context c, int leagueNum) {
+        switch (leagueNum) {
             case SERIES_A:
                 return "Seria A";
             case PREMIER_LEAGUE:
@@ -20,25 +22,25 @@ public class Utilities {
             case BUNDESLIGA:
                 return "Bundesliga";
             default:
-                return "Not known League Please report";
+                return c.getString(R.string.unknown_league);
         }
     }
 
-    public static String getMatchDay(int match_day, int league_num) {
+    public static String getMatchDay(Context c, int match_day, int league_num) {
         if (league_num == CHAMPIONS_LEAGUE) {
             if (match_day <= 6) {
-                return "Group Stages, Matchday : 6";
+                return c.getResources().getString(R.string.group_stage_text);
             } else if (match_day == 7 || match_day == 8) {
-                return "First Knockout round";
+                return c.getResources().getString(R.string.first_knockout_round);
             } else if (match_day == 9 || match_day == 10) {
-                return "QuarterFinal";
+                return c.getResources().getString(R.string.quarter_final);
             } else if (match_day == 11 || match_day == 12) {
-                return "SemiFinal";
+                return c.getResources().getString(R.string.semi_final);
             } else {
-                return "Final";
+                return c.getResources().getString(R.string.final_text);
             }
         } else {
-            return "Matchday : " + String.valueOf(match_day);
+            return c.getResources().getString(R.string.matchday_text) + " : " + String.valueOf(match_day);
         }
     }
 
