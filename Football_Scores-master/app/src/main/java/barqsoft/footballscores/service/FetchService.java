@@ -90,28 +90,28 @@ public class FetchService extends IntentService {
         String matchId;
         String matchDay;
 
-
         try {
             JSONArray matches = new JSONObject(JSONdata).getJSONArray(FIXTURES);
 
             //ContentValues to be inserted
-            Vector<ContentValues> values = new Vector<ContentValues>(matches.length());
+            Vector<ContentValues> values = new Vector<>(matches.length());
             for (int i = 0; i < matches.length(); i++) {
 
-                JSONObject match_data = matches.getJSONObject(i);
-                league = match_data.getJSONObject(LINKS).getJSONObject(SOCCER_SEASON).
-                        getString("href");
+                JSONObject matchData = matches.getJSONObject(i);
+                league = matchData.getJSONObject(LINKS).getJSONObject(SOCCER_SEASON).getString("href");
                 league = league.replace(SEASON_LINK, "");
-                //This if statement controls which leagues we're interested in the data from.
-                //add leagues here in order to have them be added to the DB.
+
+                // This if statement controls which leagues we're interested in the data from.
+                // add leagues here in order to have them be added to the DB.
                 // If you are finding no data in the app, check that this contains all the leagues.
                 // If it doesn't, that can cause an empty DB, bypassing the dummy data routine.
+                // FIXME: why is this here?
                 if (league.equals(PREMIER_LEAGUE) ||
                         league.equals(SERIE_A) ||
                         league.equals(BUNDESLIGA1) ||
                         league.equals(BUNDESLIGA2) ||
                         league.equals(PRIMERA_DIVISION)) {
-                    matchId = match_data.getJSONObject(LINKS).getJSONObject(SELF).
+                    matchId = matchData.getJSONObject(LINKS).getJSONObject(SELF).
                             getString("href");
                     matchId = matchId.replace(MATCH_LINK, "");
                     if (!isReal) {
@@ -119,13 +119,15 @@ public class FetchService extends IntentService {
                         matchId = matchId + Integer.toString(i);
                     }
 
-                    date = match_data.getString(MATCH_DATE);
+                    date = matchData.getString(MATCH_DATE);
+
+                    // FIXME: parse the string to a date
                     time = date.substring(date.indexOf("T") + 1, date.indexOf("Z"));
                     date = date.substring(0, date.indexOf("T"));
-                    SimpleDateFormat match_date = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss");
-                    match_date.setTimeZone(TimeZone.getTimeZone("UTC"));
+                    SimpleDateFormat matchDate = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss");
+                    matchDate.setTimeZone(TimeZone.getTimeZone("UTC"));
                     try {
-                        Date parsedDate = match_date.parse(date + time);
+                        Date parsedDate = matchDate.parse(date + time);
                         SimpleDateFormat new_date = new SimpleDateFormat("yyyy-MM-dd:HH:mm");
                         new_date.setTimeZone(TimeZone.getDefault());
                         date = new_date.format(parsedDate);
@@ -142,31 +144,31 @@ public class FetchService extends IntentService {
                         Log.e(LOG_TAG, e.getMessage());
                     }
 
-                    home = match_data.getString(HOME_TEAM);
-                    away = match_data.getString(AWAY_TEAM);
-                    homeGoals = match_data.getJSONObject(RESULT).getString(HOME_GOALS);
-                    awayGoals = match_data.getJSONObject(RESULT).getString(AWAY_GOALS);
-                    matchDay = match_data.getString(MATCH_DAY);
-                    ContentValues match_values = new ContentValues();
+                    home = matchData.getString(HOME_TEAM);
+                    away = matchData.getString(AWAY_TEAM);
+                    homeGoals = matchData.getJSONObject(RESULT).getString(HOME_GOALS);
+                    awayGoals = matchData.getJSONObject(RESULT).getString(AWAY_GOALS);
+                    matchDay = matchData.getString(MATCH_DAY);
+                    ContentValues matchValues = new ContentValues();
 
-                    match_values.put(DatabaseContract.scores_table.MATCH_ID, matchId);
-                    match_values.put(DatabaseContract.scores_table.DATE_COL, date);
-                    match_values.put(DatabaseContract.scores_table.TIME_COL, time);
-                    match_values.put(DatabaseContract.scores_table.HOME_COL, home);
-                    match_values.put(DatabaseContract.scores_table.AWAY_COL, away);
-                    match_values.put(DatabaseContract.scores_table.HOME_GOALS_COL, homeGoals);
-                    match_values.put(DatabaseContract.scores_table.AWAY_GOALS_COL, awayGoals);
-                    match_values.put(DatabaseContract.scores_table.LEAGUE_COL, league);
-                    match_values.put(DatabaseContract.scores_table.MATCH_DAY, matchDay);
+                    matchValues.put(DatabaseContract.ScoresTable.MATCH_ID, matchId);
+                    matchValues.put(DatabaseContract.ScoresTable.DATE_COL, date);
+                    matchValues.put(DatabaseContract.ScoresTable.TIME_COL, time);
+                    matchValues.put(DatabaseContract.ScoresTable.HOME_COL, home);
+                    matchValues.put(DatabaseContract.ScoresTable.AWAY_COL, away);
+                    matchValues.put(DatabaseContract.ScoresTable.HOME_GOALS_COL, homeGoals);
+                    matchValues.put(DatabaseContract.ScoresTable.AWAY_GOALS_COL, awayGoals);
+                    matchValues.put(DatabaseContract.ScoresTable.LEAGUE_COL, league);
+                    matchValues.put(DatabaseContract.ScoresTable.MATCH_DAY, matchDay);
 
-                    values.add(match_values);
+                    values.add(matchValues);
                 }
             }
 
-            ContentValues[] insert_data = new ContentValues[values.size()];
-            values.toArray(insert_data);
+            ContentValues[] insertData = new ContentValues[values.size()];
+            values.toArray(insertData);
             this.getContentResolver().bulkInsert(
-                    DatabaseContract.BASE_CONTENT_URI, insert_data);
+                    DatabaseContract.BASE_CONTENT_URI, insertData);
         } catch (JSONException e) {
             Log.e(LOG_TAG, e.getMessage());
         }

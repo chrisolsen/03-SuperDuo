@@ -26,7 +26,10 @@ public class MainScreenFragment extends Fragment implements LoaderManager.Loader
     public MainScreenFragment() {
     }
 
-    private void update_scores() {
+    // FIXME: having this method in the fragment means it is being called for
+    // each section on the main page, which is NOT required; it only needs to
+    // be called once.
+    private void updateScores() {
         Intent service_start = new Intent(getActivity(), FetchService.class);
         getActivity().startService(service_start);
     }
@@ -38,20 +41,20 @@ public class MainScreenFragment extends Fragment implements LoaderManager.Loader
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
-        update_scores();
+        updateScores();
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-        final ListView score_list = (ListView) rootView.findViewById(R.id.scores_list);
+        final ListView scoreList = (ListView) rootView.findViewById(R.id.scores_list);
         mAdapter = new ScoresAdapter(getActivity(), null, 0);
-        score_list.setAdapter(mAdapter);
+        scoreList.setAdapter(mAdapter);
         getLoaderManager().initLoader(SCORES_LOADER, null, this);
         mAdapter.detailMatchId = MainActivity.selectedMatchId;
-        score_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        scoreList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ScoresAdapter.ViewHolder selected = (ScoresAdapter.ViewHolder) view.getTag();
                 mAdapter.detailMatchId = selected.matchId;
                 MainActivity.selectedMatchId = (int) selected.matchId;
-                mAdapter.notifyDataSetChanged();
+                mAdapter.notifyDataSetChanged(); // TODO: remove this once the game layout is revamped
             }
         });
         return rootView;
@@ -59,7 +62,7 @@ public class MainScreenFragment extends Fragment implements LoaderManager.Loader
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-        return new CursorLoader(getActivity(), DatabaseContract.scores_table.buildScoreWithDate(),
+        return new CursorLoader(getActivity(), DatabaseContract.ScoresTable.buildScoreWithDate(),
                 null, null, fragmentDate, null);
     }
 

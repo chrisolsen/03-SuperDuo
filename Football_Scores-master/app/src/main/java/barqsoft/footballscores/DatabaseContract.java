@@ -5,9 +5,9 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 
 public class DatabaseContract {
-    public static final String SCORES_TABLE = "scores_table";
+    public static final String SCORES_TABLE = "ScoresTable";
 
-    public static final class scores_table implements BaseColumns {
+    public static final class ScoresTable implements BaseColumns {
         //Table data
         public static final String LEAGUE_COL = "league";
         public static final String DATE_COL = "date";
