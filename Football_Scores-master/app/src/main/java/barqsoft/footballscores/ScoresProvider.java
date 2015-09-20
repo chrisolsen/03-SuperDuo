@@ -7,9 +7,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 
-/**
- * Created by yehya khaled on 2/25/2015.
- */
 public class ScoresProvider extends ContentProvider {
     private static ScoresDBHelper mOpenHelper;
     private static final int MATCHES = 100;

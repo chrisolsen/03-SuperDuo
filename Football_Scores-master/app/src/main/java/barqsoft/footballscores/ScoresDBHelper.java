@@ -6,9 +6,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import barqsoft.footballscores.DatabaseContract.scores_table;
 
-/**
- * Created by yehya khaled on 2/25/2015.
- */
 public class ScoresDBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Scores.db";
     private static final int DATABASE_VERSION = 2;
