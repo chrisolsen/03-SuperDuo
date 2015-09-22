@@ -11,6 +11,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.TimeZone;
 import java.util.Vector;
@@ -29,11 +30,40 @@ public class FetchService extends IntentService {
     protected void onHandleIntent(Intent intent) {
         getData("n2");
         getData("p2");
+        getTeams();
+    }
+
+    private void getTeams() {
+        try {
+            String body = FootballApi.fetchTeams(this);
+            JSONArray json = new JSONArray(body);
+            ArrayList<ContentValues> vals = new ArrayList<>();
+
+            for (int i = 0; i < json.length(); i++) {
+                JSONObject obj = json.getJSONObject(i);
+
+                ContentValues c = new ContentValues();
+                c.put(DatabaseContract.TeamsTable.TEAM_ID, obj.getInt("id"));
+                c.put(DatabaseContract.TeamsTable.TEAM_NAME, obj.getInt("name"));
+                c.put(DatabaseContract.TeamsTable.TEAM_SHORT_NAME, obj.getInt("shortName"));
+                c.put(DatabaseContract.TeamsTable.TEAM_CREST_URL, obj.getInt("crestUrl"));
+
+                vals.add(c);
+            }
+
+            getContentResolver().bulkInsert(DatabaseContract.TeamsTable.CONTENT_URI, vals.toArray(new ContentValues[vals.size()]));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void getData(String timeFrame) {
         try {
-            String body = FootballApi.get(this, timeFrame);
+            String body = FootballApi.fetchGames(this, timeFrame);
             JSONArray matches = new JSONObject(body).getJSONArray("fixtures");
 
             if (matches.length() == 0) {
@@ -168,7 +198,7 @@ public class FetchService extends IntentService {
             ContentValues[] insertData = new ContentValues[values.size()];
             values.toArray(insertData);
             this.getContentResolver().bulkInsert(
-                    DatabaseContract.BASE_CONTENT_URI, insertData);
+                    DatabaseContract.ScoresTable.CONTENT_URI, insertData);
         } catch (JSONException e) {
             Log.e(LOG_TAG, e.getMessage());
         }

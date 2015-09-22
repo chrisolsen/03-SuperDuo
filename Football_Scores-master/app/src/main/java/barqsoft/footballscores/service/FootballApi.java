@@ -12,29 +12,35 @@ import java.io.IOException;
 import barqsoft.footballscores.R;
 
 public class FootballApi {
-    private static final String BASE_URL = "http://api.football-data.org/alpha/fixtures";
-    private static final String QUERY_TIME_FRAME = "timeFrame"; //Time Frame parameter to determine days
+    private static final String BASE_URL = "http://api.football-data.org";
 
-    private static Uri getUri(String param) {
-        return Uri.parse(BASE_URL)
+    public static String fetchTeams(Context c) throws IOException {
+        Uri uri = Uri.parse(BASE_URL)
                 .buildUpon()
-                .appendQueryParameter(QUERY_TIME_FRAME, param)
+                .appendPath("teams")
                 .build();
+
+        return get(c, uri);
     }
 
-    public static String get(Context c, String timeFrame) throws IOException {
-        String apiKey = c.getResources().getString(R.string.api_key);
-        String url = getUri(timeFrame).toString();
-
-        OkHttpClient client = new OkHttpClient();
-
-        Request request = new Request.Builder()
-                .url(url)
-                .addHeader("X-Auth-Token", apiKey)
+    public static String fetchGames(Context c, String timeFrame) throws IOException {
+        Uri uri = Uri.parse(BASE_URL)
+                .buildUpon()
+                .appendPath("alpha/fixtures")
+                .appendQueryParameter(timeFrame, timeFrame)
                 .build();
 
-        Response response = client.newCall(request).execute();
+        return get(c, uri);
+    }
 
+    private static String get(Context c, Uri uri) throws IOException {
+        String apiKey = c.getResources().getString(R.string.api_key);
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(uri.toString())
+                .addHeader("X-Auth-Token", apiKey)
+                .build();
+        Response response = client.newCall(request).execute();
         return response.body().string();
     }
 }

@@ -26,6 +26,11 @@
             android:exported="false"
             android:authorities="barqsoft.footballscores" />
 
+        <provider
+            android:name=".TeamsProvider"
+            android:exported="false"
+            android:authorities="barqsoft.footballscores" />
+
         <activity
             android:name=".AboutActivity"
             android:label="About"

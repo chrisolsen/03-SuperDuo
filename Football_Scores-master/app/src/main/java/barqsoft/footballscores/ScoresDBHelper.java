@@ -16,7 +16,9 @@ public class ScoresDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        final String CreateScoresTable = "CREATE TABLE " + DatabaseContract.SCORES_TABLE + " ("
+
+        // scores
+        final String createScoresTable = "CREATE TABLE " + DatabaseContract.SCORES_TABLE + " ("
                 + DatabaseContract.ScoresTable._ID + " INTEGER PRIMARY KEY,"
                 + ScoresTable.DATE_COL + " TEXT NOT NULL,"
                 + DatabaseContract.ScoresTable.TIME_COL + " INTEGER NOT NULL,"
@@ -29,7 +31,19 @@ public class ScoresDBHelper extends SQLiteOpenHelper {
                 + DatabaseContract.ScoresTable.MATCH_DAY + " INTEGER NOT NULL,"
                 + " UNIQUE (" + DatabaseContract.ScoresTable.MATCH_ID + ") ON CONFLICT REPLACE"
                 + " );";
-        db.execSQL(CreateScoresTable);
+
+        // teams
+        final String createTeamsTable = "CREATE TABLE " + DatabaseContract.TEAMS_TABLE + " ("
+                + DatabaseContract.TeamsTable._ID               + " integer primary key,"
+                + DatabaseContract.TeamsTable.TEAM_ID           + " integer not null,"
+                + DatabaseContract.TeamsTable.TEAM_NAME         + " text not null,"
+                + DatabaseContract.TeamsTable.TEAM_SHORT_NAME   + " text not null,"
+                + DatabaseContract.TeamsTable.TEAM_CREST_URL    + " text not null,"
+                + " unique (" + DatabaseContract.TeamsTable.TEAM_ID + ") on conflict replace"
+                + ");";
+
+        db.execSQL(createScoresTable);
+        db.execSQL(createTeamsTable);
     }
 
     @Override
