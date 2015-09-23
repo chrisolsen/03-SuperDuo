@@ -22,8 +22,8 @@ public class TeamsProvider extends ContentProvider {
         final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
         final String authority = DatabaseContract.CONTENT_AUTHORITY;
 
-        matcher.addURI(authority, DatabaseContract.TEAMS_PATH + "/#", MATCH_TEAM);
-        matcher.addURI(authority, DatabaseContract.TEAMS_PATH, MATCH_TEAMS);
+        matcher.addURI(authority, DatabaseContract.TeamsTable.PATH + "/#", MATCH_TEAM);
+        matcher.addURI(authority, DatabaseContract.TeamsTable.PATH, MATCH_TEAMS);
 
         return matcher;
     }

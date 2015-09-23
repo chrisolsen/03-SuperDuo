@@ -24,12 +24,12 @@
         <provider
             android:name=".ScoresProvider"
             android:exported="false"
-            android:authorities="barqsoft.footballscores" />
+            android:authorities="barqsoft.footballscores.scores" />
 
         <provider
             android:name=".TeamsProvider"
             android:exported="false"
-            android:authorities="barqsoft.footballscores" />
+            android:authorities="barqsoft.footballscores.teams" />
 
         <activity
             android:name=".AboutActivity"

@@ -11,6 +11,23 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.HashMap;
+
+import barqsoft.footballscores.svg.SVG;
+import barqsoft.footballscores.svg.SVGParseException;
+import barqsoft.footballscores.svg.SVGParser;
+
+//import com.caverock.androidsvg.SVG;
+//import com.caverock.androidsvg.SVGAndroidRenderer;
+//import com.caverock.androidsvg.SVGExternalFileResolver;
+//import com.caverock.androidsvg.SVGImageView;
+//import com.caverock.androidsvg.SVGParseException;
+
 public class ScoresAdapter extends CursorAdapter {
     public static final int COL_HOME = 3;
     public static final int COL_AWAY = 4;
@@ -23,8 +40,26 @@ public class ScoresAdapter extends CursorAdapter {
     public double detailMatchId = 0;
     private String FOOTBALL_SCORES_HASHTAG = "#Football_Scores";
 
+    private HashMap<String, String> mTeams = new HashMap<>();
+
     public ScoresAdapter(Context context, Cursor cursor, int flags) {
         super(context, cursor, flags);
+
+        Cursor c = context.getContentResolver().query(
+                DatabaseContract.TeamsTable.CONTENT_URI,
+                new String[]{
+                        DatabaseContract.TeamsTable.TEAM_NAME,
+                        DatabaseContract.TeamsTable.TEAM_CREST_URL
+                }, null, null, null);
+
+        if (c.moveToFirst()) {
+            do {
+                String name = c.getString(c.getColumnIndex(DatabaseContract.TeamsTable.TEAM_NAME));
+                String url = c.getString(c.getColumnIndex(DatabaseContract.TeamsTable.TEAM_CREST_URL));
+                mTeams.put(name, url);
+            } while (c.moveToNext());
+        }
+
     }
 
     @Override
@@ -44,8 +79,28 @@ public class ScoresAdapter extends CursorAdapter {
         mHolder.score.setText(Utilities.getScores(cursor.getInt(COL_HOME_GOALS), cursor.getInt(COL_AWAY_GOALS)));
         mHolder.matchId = cursor.getDouble(COL_ID);
 
-        mHolder.homeCrest.setImageResource(Utilities.getTeamCrestByTeamName(cursor.getString(COL_HOME)));
-        mHolder.awayCrest.setImageResource(Utilities.getTeamCrestByTeamName(cursor.getString(COL_AWAY)));
+        final String homeCrestUrl = mTeams.get(cursor.getString(COL_HOME));
+
+        try {
+            final URL url = new URL(homeCrestUrl);
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            InputStream inputStream = urlConnection.getInputStream();
+
+            SVG svg = SVGParser.getSVGFromInputStream(inputStream);
+            mHolder.homeCrest.setImageDrawable(svg.createPictureDrawable());
+            mHolder.awayCrest.setImageDrawable(svg.createPictureDrawable());
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (SVGParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+//        mHolder.homeCrest.setImageResource(Utilities.getTeamCrestByTeamName(cursor.getString(COL_HOME)));
+//        mHolder.awayCrest.setImageResource(Utilities.getTeamCrestByTeamName(cursor.getString(COL_AWAY)));
 
 
         LayoutInflater vi = (LayoutInflater) context.getApplicationContext()
