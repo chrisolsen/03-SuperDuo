@@ -50,5 +50,6 @@ public class ScoresDBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         //Remove old values when upgrading.
         db.execSQL("DROP TABLE IF EXISTS " + DatabaseContract.SCORES_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + DatabaseContract.TEAMS_TABLE);
     }
 }

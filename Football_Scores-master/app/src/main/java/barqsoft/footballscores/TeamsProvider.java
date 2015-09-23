@@ -20,7 +20,7 @@ public class TeamsProvider extends ContentProvider {
 
     private static UriMatcher buildUriMatcher() {
         final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
-        final String authority = DatabaseContract.CONTENT_AUTHORITY;
+        final String authority = DatabaseContract.TeamsTable.CONTENT_AUTHORITY;
 
         matcher.addURI(authority, DatabaseContract.TeamsTable.PATH + "/#", MATCH_TEAM);
         matcher.addURI(authority, DatabaseContract.TeamsTable.PATH, MATCH_TEAMS);
@@ -77,7 +77,7 @@ public class TeamsProvider extends ContentProvider {
     public Uri insert(Uri uri, ContentValues values) {
         long id = mDbHelper.getWritableDatabase().insertWithOnConflict(
                 DatabaseContract.TEAMS_TABLE, null, values, SQLiteDatabase.CONFLICT_REPLACE);
-        return ContentUris.withAppendedId(DatabaseContract.TeamsTable.CONTENT_URI, id);
+        return ContentUris.withAppendedId(DatabaseContract.TeamsTable.BASE_CONTENT_URI, id);
     }
 
     @Override

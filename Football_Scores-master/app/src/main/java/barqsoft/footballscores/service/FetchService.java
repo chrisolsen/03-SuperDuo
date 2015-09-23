@@ -10,6 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,6 +22,7 @@ import barqsoft.footballscores.R;
 
 public class FetchService extends IntentService {
     public static final String LOG_TAG = "FetchService";
+    private static final String TAG = FetchService.class.getSimpleName();
 
     public FetchService() {
         super("FetchService");
@@ -35,7 +37,15 @@ public class FetchService extends IntentService {
 
     private void getTeams() {
         try {
-            String body = FootballApi.fetchTeams(this);
+            String body = null;
+
+            InputStream is = this.getAssets().open("teams.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            body = new String(buffer, "UTF-8");
+
             JSONArray json = new JSONArray(body);
             ArrayList<ContentValues> vals = new ArrayList<>();
 
@@ -44,21 +54,20 @@ public class FetchService extends IntentService {
 
                 ContentValues c = new ContentValues();
                 c.put(DatabaseContract.TeamsTable.TEAM_ID, obj.getInt("id"));
-                c.put(DatabaseContract.TeamsTable.TEAM_NAME, obj.getInt("name"));
-                c.put(DatabaseContract.TeamsTable.TEAM_SHORT_NAME, obj.getInt("shortName"));
-                c.put(DatabaseContract.TeamsTable.TEAM_CREST_URL, obj.getInt("crestUrl"));
+                c.put(DatabaseContract.TeamsTable.TEAM_NAME, obj.getString("name"));
+                c.put(DatabaseContract.TeamsTable.TEAM_SHORT_NAME, obj.getString("shortName"));
+                c.put(DatabaseContract.TeamsTable.TEAM_CREST_URL, obj.getString("crestUrl"));
 
                 vals.add(c);
             }
 
-            getContentResolver().bulkInsert(DatabaseContract.TeamsTable.CONTENT_URI, vals.toArray(new ContentValues[vals.size()]));
+            getContentResolver().bulkInsert(DatabaseContract.TeamsTable.BASE_CONTENT_URI, vals.toArray(new ContentValues[vals.size()]));
 
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     private void getData(String timeFrame) {
@@ -198,7 +207,7 @@ public class FetchService extends IntentService {
             ContentValues[] insertData = new ContentValues[values.size()];
             values.toArray(insertData);
             this.getContentResolver().bulkInsert(
-                    DatabaseContract.ScoresTable.CONTENT_URI, insertData);
+                    DatabaseContract.ScoresTable.BASE_CONTENT_URI, insertData);
         } catch (JSONException e) {
             Log.e(LOG_TAG, e.getMessage());
         }

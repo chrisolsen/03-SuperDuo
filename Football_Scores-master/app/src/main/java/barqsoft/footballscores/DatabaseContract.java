@@ -9,23 +9,23 @@ public class DatabaseContract {
     public static final String TEAMS_TABLE = "teams";
 
     public static final class TeamsTable implements BaseColumns {
+        public static final String CONTENT_AUTHORITY = "barqsoft.footballscores.teams";
         public static final String PATH = "teams";
+        public static Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
         public static final String TEAM_ID = "id";
         public static final String TEAM_NAME = "name";
         public static final String TEAM_SHORT_NAME = "short_name";
         public static final String TEAM_CREST_URL = "crest_url";
 
-        public static Uri CONTENT_URI =
-                BASE_CONTENT_URI.buildUpon().appendPath(PATH).build();
-        public static final String CONTENT_TYPE =
-                ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH;
-        public static final String CONTENT_ITEM_TYPE =
-                ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH;
+        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH;
+        public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH;
     }
 
     public static final class ScoresTable implements BaseColumns {
+        public static final String CONTENT_AUTHORITY = "barqsoft.footballscores.scores";
         public static final String PATH = "scores";
+        public static Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
         //Table data
         public static final String LEAGUE_COL = "league";
@@ -37,9 +37,6 @@ public class DatabaseContract {
         public static final String AWAY_GOALS_COL = "away_goals";
         public static final String MATCH_ID = "match_id";
         public static final String MATCH_DAY = "match_day";
-
-        public static Uri CONTENT_URI =
-                BASE_CONTENT_URI.buildUpon().appendPath(PATH).build();
 
         //Types
         public static final String CONTENT_TYPE =
@@ -60,7 +57,4 @@ public class DatabaseContract {
         }
     }
 
-    //URI data
-    public static final String CONTENT_AUTHORITY = "barqsoft.footballscores";
-    public static Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 }
