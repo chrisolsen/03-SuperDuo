@@ -101,40 +101,9 @@ public class ScoresAdapter extends CursorAdapter {
         mHolder.awayName.setText(awayTeamName);
         mHolder.date.setText(cursor.getString(COL_MATCH_TIME));
         mHolder.score.setText(score);
-        mHolder.matchId = cursor.getDouble(COL_ID);
 
         bindEmblem(mTeams.get(homeTeamName), mHolder.homeCrest);
         bindEmblem(mTeams.get(awayTeamName), mHolder.awayCrest);
-
-        LayoutInflater vi = (LayoutInflater) context.getApplicationContext()
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = vi.inflate(R.layout.detail_fragment, null);
-        ViewGroup container = (ViewGroup) view.findViewById(R.id.details_fragment_container);
-        if (mHolder.matchId == detailMatchId) {
-
-            container.addView(v, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT
-                    , ViewGroup.LayoutParams.MATCH_PARENT));
-//            TextView match_day = (TextView) v.findViewById(R.id.matchday_textview);
-//            match_day.setText(Utilities.getMatchDay(context, cursor.getInt(COL_MATCH_DAY),
-//                    cursor.getInt(COL_LEAGUE)));
-//            TextView league = (TextView) v.findViewById(R.id.league_textview);
-
-            // FIXME: if we want to show leagues, additional queries must be added to the content provider
-            // to prevent all the hardcoded values, for now comment it out.
-            //league.setText(Utilities.getLeague(context, cursor.getInt(COL_LEAGUE)));
-//            Button share_button = (Button) v.findViewById(R.id.share_button);
-//            share_button.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    //add Share Action
-//                    context.startActivity(createShareForecastIntent(mHolder.homeName.getText() + " "
-//                            + mHolder.score.getText() + " " + mHolder.awayName.getText() + " "));
-//                }
-//            });
-        } else {
-            container.removeAllViews();
-        }
-
     }
 
     // FIXME: prevent share provider from being able to be saved

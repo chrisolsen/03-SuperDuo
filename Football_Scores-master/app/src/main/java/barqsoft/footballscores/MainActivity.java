@@ -9,9 +9,7 @@ import android.view.MenuItem;
 
 public class MainActivity extends ActionBarActivity {
     private static final String STATE_PAGER_CURRENT = "Pager_Current";
-    private static final String STATE_SELECTED_MATCH = "Selected_match";
     private static final String STATE_FRAG = "myMain";
-    public static int selectedMatchId;
     public static int currentFragment = 2;
     public static String LOG_TAG = "MainActivity";
     private final String saveTag = "Save Test";
@@ -28,7 +26,6 @@ public class MainActivity extends ActionBarActivity {
                     .commit();
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -58,9 +55,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onSaveInstanceState(Bundle outState) {
         Log.v(saveTag, "will save");
         Log.v(saveTag, "fragment: " + String.valueOf(myMain.mPagerHandler.getCurrentItem()));
-        Log.v(saveTag, "selected id: " + selectedMatchId);
         outState.putInt(STATE_PAGER_CURRENT, myMain.mPagerHandler.getCurrentItem());
-        outState.putInt(STATE_SELECTED_MATCH, selectedMatchId);
         getSupportFragmentManager().putFragment(outState, STATE_FRAG, myMain);
         super.onSaveInstanceState(outState);
     }
@@ -69,9 +64,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         Log.v(saveTag, "will retrieve");
         Log.v(saveTag, "fragment: " + String.valueOf(savedInstanceState.getInt("Pager_Current")));
-        Log.v(saveTag, "selected id: " + savedInstanceState.getInt("Selected_match"));
         currentFragment = savedInstanceState.getInt(STATE_PAGER_CURRENT);
-        selectedMatchId = savedInstanceState.getInt(STATE_SELECTED_MATCH);
         myMain = (PagerFragment) getSupportFragmentManager().getFragment(savedInstanceState, STATE_FRAG);
         super.onRestoreInstanceState(savedInstanceState);
     }
