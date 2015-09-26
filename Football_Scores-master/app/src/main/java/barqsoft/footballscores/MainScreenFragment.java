@@ -24,17 +24,17 @@ public class MainScreenFragment extends Fragment implements LoaderManager.Loader
     private ScoresAdapter mAdapter;
     private String mFragmentDate;
 
-    public MainScreenFragment() {
-    }
-
-    // FIXME: having this method in the fragment means it is being called for
-    // each section on the main page, which is NOT required; it only needs to
-    // be called once.
     private void updateScores() {
+        Log.d(TAG, "updateScores again");
         Intent service_start = new Intent(getActivity(), FetchService.class);
         getActivity().startService(service_start);
     }
 
+    /**
+     * Sets the date value that is used to fetch the data
+     *
+     * @param date
+     */
     public void setFragmentDate(String date) {
         mFragmentDate = date;
     }

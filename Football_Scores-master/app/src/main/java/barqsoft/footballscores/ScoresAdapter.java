@@ -1,20 +1,16 @@
 package barqsoft.footballscores;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.support.v4.widget.CursorAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -38,6 +34,8 @@ public class ScoresAdapter extends CursorAdapter {
     public ScoresAdapter(Context context, Cursor cursor, int flags) {
         super(context, cursor, flags);
 
+//        mContext = context;
+
         Cursor c = context.getContentResolver().query(
                 DatabaseContract.TeamsTable.CONTENT_URI,
                 new String[]{
@@ -50,7 +48,8 @@ public class ScoresAdapter extends CursorAdapter {
                 String name = c.getString(c.getColumnIndex(DatabaseContract.TeamsTable.TEAM_NAME));
                 String url = c.getString(c.getColumnIndex(DatabaseContract.TeamsTable.TEAM_CREST_URL));
                 String[] parts = url.split("/");
-                String pngFile = parts[parts.length - 1].replace(".svg", ".png");
+                String filename = parts[parts.length - 1];
+                String pngFile = filename.endsWith(".svg") ? filename.replace(".svg", ".png") : filename;
                 mTeams.put(name, pngFile);
 
             } while (c.moveToNext());
@@ -65,7 +64,21 @@ public class ScoresAdapter extends CursorAdapter {
         return mItem;
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    private void bindEmblem(String url, ImageView view) {
+        if (url != null) {
+            Drawable drawable;
+            try {
+                InputStream inputStream = mContext.getResources().getAssets().open(url);
+                drawable = Drawable.createFromStream(inputStream, null);
+                view.setImageDrawable(drawable);
+            } catch (IOException e) {
+                view.setImageDrawable(mContext.getResources().getDrawable(R.mipmap.no_emblem));
+            }
+        } else {
+            view.setImageDrawable(mContext.getResources().getDrawable(R.mipmap.no_emblem));
+        }
+    }
+
     @Override
     public void bindView(View view, final Context context, Cursor cursor) {
         final ViewHolder mHolder = (ViewHolder) view.getTag();
@@ -90,21 +103,8 @@ public class ScoresAdapter extends CursorAdapter {
         mHolder.score.setText(score);
         mHolder.matchId = cursor.getDouble(COL_ID);
 
-        try {
-            String homeUrl = mTeams.get(homeTeamName);
-            InputStream homeS = context.getResources().getAssets().open(homeUrl);
-            Drawable homeD = Drawable.createFromStream(homeS, null);
-            mHolder.homeCrest.setImageDrawable(homeD);
-
-            String awayUrl = mTeams.get(awayTeamName);
-            InputStream awayS = context.getResources().getAssets().open(awayUrl);
-            Drawable awayD = Drawable.createFromStream(awayS, null);
-            mHolder.awayCrest.setImageDrawable(awayD);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        bindEmblem(mTeams.get(homeTeamName), mHolder.homeCrest);
+        bindEmblem(mTeams.get(awayTeamName), mHolder.awayCrest);
 
         LayoutInflater vi = (LayoutInflater) context.getApplicationContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -117,20 +117,20 @@ public class ScoresAdapter extends CursorAdapter {
 //            TextView match_day = (TextView) v.findViewById(R.id.matchday_textview);
 //            match_day.setText(Utilities.getMatchDay(context, cursor.getInt(COL_MATCH_DAY),
 //                    cursor.getInt(COL_LEAGUE)));
-            TextView league = (TextView) v.findViewById(R.id.league_textview);
+//            TextView league = (TextView) v.findViewById(R.id.league_textview);
 
             // FIXME: if we want to show leagues, additional queries must be added to the content provider
             // to prevent all the hardcoded values, for now comment it out.
             //league.setText(Utilities.getLeague(context, cursor.getInt(COL_LEAGUE)));
-            Button share_button = (Button) v.findViewById(R.id.share_button);
-            share_button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //add Share Action
-                    context.startActivity(createShareForecastIntent(mHolder.homeName.getText() + " "
-                            + mHolder.score.getText() + " " + mHolder.awayName.getText() + " "));
-                }
-            });
+//            Button share_button = (Button) v.findViewById(R.id.share_button);
+//            share_button.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    //add Share Action
+//                    context.startActivity(createShareForecastIntent(mHolder.homeName.getText() + " "
+//                            + mHolder.score.getText() + " " + mHolder.awayName.getText() + " "));
+//                }
+//            });
         } else {
             container.removeAllViews();
         }

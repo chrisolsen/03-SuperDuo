@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class PagerFragment extends Fragment {
-    public static final int NUM_PAGES = 5;
+    private static final int NUM_PAGES = 5;
     public ViewPager mPagerHandler;
     private PageAdapter mPagerAdapter;
     private MainScreenFragment[] viewFragments = new MainScreenFragment[NUM_PAGES];
@@ -24,16 +24,20 @@ public class PagerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.pager_fragment, container, false);
+
         mPagerHandler = (ViewPager) rootView.findViewById(R.id.pager);
         mPagerAdapter = new PageAdapter(getChildFragmentManager());
+
         for (int i = 0; i < NUM_PAGES; i++) {
             Date fragmentDate = new Date(System.currentTimeMillis() + ((i - 2) * 86400000));
             SimpleDateFormat msFormat = new SimpleDateFormat("yyyy-MM-dd");
             viewFragments[i] = new MainScreenFragment();
             viewFragments[i].setFragmentDate(msFormat.format(fragmentDate));
         }
+
         mPagerHandler.setAdapter(mPagerAdapter);
         mPagerHandler.setCurrentItem(MainActivity.currentFragment);
+
         return rootView;
     }
 

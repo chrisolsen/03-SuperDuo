@@ -21,7 +21,6 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(LOG_TAG, "Reached MainActivity onCreate");
         if (savedInstanceState == null) {
             myMain = new PagerFragment();
             getSupportFragmentManager().beginTransaction()
