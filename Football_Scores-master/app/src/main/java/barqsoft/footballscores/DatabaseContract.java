@@ -11,7 +11,9 @@ public class DatabaseContract {
     public static final class TeamsTable implements BaseColumns {
         public static final String CONTENT_AUTHORITY = "barqsoft.footballscores.teams";
         public static final String PATH = "teams";
+
         public static Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
+        public static Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH).build();
 
         public static final String TEAM_ID = "id";
         public static final String TEAM_NAME = "name";
@@ -37,6 +39,9 @@ public class DatabaseContract {
         public static final String AWAY_GOALS_COL = "away_goals";
         public static final String MATCH_ID = "match_id";
         public static final String MATCH_DAY = "match_day";
+
+//        public static Uri CONTENT_URI =
+//                BASE_CONTENT_URI.buildUpon().appendPath("leagues").build();
 
         //Types
         public static final String CONTENT_TYPE =

@@ -38,7 +38,7 @@ public class ScoresDBHelper extends SQLiteOpenHelper {
                 + DatabaseContract.TeamsTable.TEAM_ID           + " integer not null,"
                 + DatabaseContract.TeamsTable.TEAM_NAME         + " text not null,"
                 + DatabaseContract.TeamsTable.TEAM_SHORT_NAME   + " text not null,"
-                + DatabaseContract.TeamsTable.TEAM_CREST_URL    + " text not null,"
+                + DatabaseContract.TeamsTable.TEAM_CREST_URL + " text,"
                 + " unique (" + DatabaseContract.TeamsTable.TEAM_ID + ") on conflict replace"
                 + ");";
 
