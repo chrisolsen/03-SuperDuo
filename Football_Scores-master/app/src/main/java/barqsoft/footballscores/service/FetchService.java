@@ -91,17 +91,8 @@ public class FetchService extends IntentService {
         //JSON data
         // This set of league codes is for the 2015/2016 season. In fall of 2016, they will need to
         // be updated. Feel free to use the codes
-        final String BUNDESLIGA1 = "394";
-        final String BUNDESLIGA2 = "395";
-        final String LIGUE1 = "396";
-        final String LIGUE2 = "397";
-        final String PREMIER_LEAGUE = "398";
-        final String PRIMERA_DIVISION = "399";
-        final String SEGUNDA_DIVISION = "400";
-        final String SERIE_A = "401";
-        final String PRIMERA_LIGA = "402";
-        final String Bundesliga3 = "403";
-        final String EREDIVISIE = "404";
+        final int LEAGUE_START_ID = 394;
+        final int LEAGUE_END_ID = 405;
 
 
         final String SEASON_LINK = "http://api.football-data.org/alpha/soccerseasons/";
@@ -138,18 +129,13 @@ public class FetchService extends IntentService {
 
                 JSONObject matchData = matches.getJSONObject(i);
                 league = matchData.getJSONObject(LINKS).getJSONObject(SOCCER_SEASON).getString("href");
-                league = league.replace(SEASON_LINK, "");
+                int leagueId = Integer.parseInt(league.replace(SEASON_LINK, ""));
 
                 // This if statement controls which leagues we're interested in the data from.
                 // add leagues here in order to have them be added to the DB.
                 // If you are finding no data in the app, check that this contains all the leagues.
                 // If it doesn't, that can cause an empty DB, bypassing the dummy data routine.
-                // FIXME: why is this here?
-                if (league.equals(PREMIER_LEAGUE) ||
-                        league.equals(SERIE_A) ||
-                        league.equals(BUNDESLIGA1) ||
-                        league.equals(BUNDESLIGA2) ||
-                        league.equals(PRIMERA_DIVISION)) {
+                if (leagueId >= LEAGUE_START_ID && leagueId <= LEAGUE_END_ID) {
                     matchId = matchData.getJSONObject(LINKS).getJSONObject(SELF).
                             getString("href");
                     matchId = matchId.replace(MATCH_LINK, "");
@@ -164,6 +150,7 @@ public class FetchService extends IntentService {
                     time = date.substring(date.indexOf("T") + 1, date.indexOf("Z"));
                     date = date.substring(0, date.indexOf("T"));
                     SimpleDateFormat matchDate = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss");
+
                     matchDate.setTimeZone(TimeZone.getTimeZone("UTC"));
                     try {
                         Date parsedDate = matchDate.parse(date + time);

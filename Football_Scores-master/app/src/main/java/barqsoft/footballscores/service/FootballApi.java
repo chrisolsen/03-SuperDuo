@@ -15,17 +15,6 @@ public class FootballApi {
     private static final String BASE_URL = "http://api.football-data.org";
     private static final String TAG = FootballApi.class.getSimpleName();
 
-//    public static String fetchTeams(Context c) throws IOException {
-//        Uri uri = Uri.parse(BASE_URL)
-//                .buildUpon()
-//                .appendPath("teams")
-//                .build();
-//
-//        Log.d(TAG, "fetchTeams uri: " + uri);
-//
-//        return get(c, uri);
-//    }
-
     public static String fetchGames(Context c, String timeFrame) throws IOException {
         Uri uri = Uri.parse(BASE_URL)
                 .buildUpon()

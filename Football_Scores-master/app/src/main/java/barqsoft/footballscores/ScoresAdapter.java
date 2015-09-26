@@ -72,11 +72,22 @@ public class ScoresAdapter extends CursorAdapter {
 
         String homeTeamName = cursor.getString(COL_HOME);
         String awayTeamName = cursor.getString(COL_AWAY);
+        int homeScore = cursor.getInt(COL_HOME_GOALS);
+        int awayScore = cursor.getInt(COL_AWAY_GOALS);
+        String score;
+
+        // FIXME: quick hack for now, for vertical alignment reasons create 2 different view groups
+        // for scores and vs.
+        if (homeScore >= 0 && awayScore >= 0) {
+            score = Integer.toString(homeScore) + " - " + Integer.toString(awayScore);
+        } else {
+            score = "@";
+        }
 
         mHolder.homeName.setText(homeTeamName);
         mHolder.awayName.setText(awayTeamName);
         mHolder.date.setText(cursor.getString(COL_MATCH_TIME));
-        mHolder.score.setText(Utilities.getScores(cursor.getInt(COL_HOME_GOALS), cursor.getInt(COL_AWAY_GOALS)));
+        mHolder.score.setText(score);
         mHolder.matchId = cursor.getDouble(COL_ID);
 
         try {
@@ -103,11 +114,14 @@ public class ScoresAdapter extends CursorAdapter {
 
             container.addView(v, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT
                     , ViewGroup.LayoutParams.MATCH_PARENT));
-            TextView match_day = (TextView) v.findViewById(R.id.matchday_textview);
-            match_day.setText(Utilities.getMatchDay(context, cursor.getInt(COL_MATCH_DAY),
-                    cursor.getInt(COL_LEAGUE)));
+//            TextView match_day = (TextView) v.findViewById(R.id.matchday_textview);
+//            match_day.setText(Utilities.getMatchDay(context, cursor.getInt(COL_MATCH_DAY),
+//                    cursor.getInt(COL_LEAGUE)));
             TextView league = (TextView) v.findViewById(R.id.league_textview);
-            league.setText(Utilities.getLeague(context, cursor.getInt(COL_LEAGUE)));
+
+            // FIXME: if we want to show leagues, additional queries must be added to the content provider
+            // to prevent all the hardcoded values, for now comment it out.
+            //league.setText(Utilities.getLeague(context, cursor.getInt(COL_LEAGUE)));
             Button share_button = (Button) v.findViewById(R.id.share_button);
             share_button.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -123,6 +137,7 @@ public class ScoresAdapter extends CursorAdapter {
 
     }
 
+    // FIXME: prevent share provider from being able to be saved
     public Intent createShareForecastIntent(String ShareText) {
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
