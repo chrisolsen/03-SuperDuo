@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.support.v4.widget.CursorAdapter;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -122,6 +122,17 @@ public class ScoresAdapter extends CursorAdapter {
         mHolder.date.setText(toTime.format(gameDate));
         mHolder.score.setText(score);
         mHolder.matchDay.setText(getMatchDay(matchDay, leagueId));
+        mHolder.shareButton.setOnClickListener(new ImageButton.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Share " + FOOTBALL_SCORES_HASHTAG);
+
+            }
+        });
 
         bindEmblem(mTeams.get(homeTeamName), mHolder.homeCrest);
         bindEmblem(mTeams.get(awayTeamName), mHolder.awayCrest);
@@ -145,15 +156,6 @@ public class ScoresAdapter extends CursorAdapter {
         return "";
     }
 
-    // FIXME: prevent share provider from being able to be saved
-    public Intent createShareForecastIntent(String ShareText) {
-        Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-        shareIntent.setType("text/plain");
-        shareIntent.putExtra(Intent.EXTRA_TEXT, ShareText + FOOTBALL_SCORES_HASHTAG);
-        return shareIntent;
-    }
-
     public static class ViewHolder {
         public TextView homeName;
         public TextView awayName;
@@ -162,6 +164,7 @@ public class ScoresAdapter extends CursorAdapter {
         public ImageView homeCrest;
         public ImageView awayCrest;
         public TextView matchDay;
+        public ImageButton shareButton;
 
         public ViewHolder(View view) {
             homeName = (TextView) view.findViewById(R.id.home_name);
@@ -171,6 +174,7 @@ public class ScoresAdapter extends CursorAdapter {
             homeCrest = (ImageView) view.findViewById(R.id.home_crest);
             awayCrest = (ImageView) view.findViewById(R.id.away_crest);
             matchDay = (TextView) view.findViewById(R.id.match_day);
+            shareButton = (ImageButton) view.findViewById(R.id.share_game);
         }
     }
 
