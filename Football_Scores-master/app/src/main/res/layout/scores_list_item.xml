@@ -23,7 +23,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="@dimen/game_card_horizontal_padding"
+                android:paddingStart="@dimen/game_card_horizontal_padding"
                 android:paddingRight="@dimen/game_card_horizontal_padding"
+                android:paddingEnd="@dimen/game_card_horizontal_padding"
                 android:paddingTop="@dimen/game_card_vertical_padding"
                 android:paddingBottom="@dimen/game_card_vertical_padding"
                 android:orientation="horizontal">
@@ -109,7 +111,9 @@
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin">
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingStart="@dimen/activity_horizontal_margin"
+                android:paddingEnd="@dimen/activity_horizontal_margin">
 
                 <TextView
                     android:id="@+id/game_time"
@@ -133,7 +137,9 @@
                     android:textSize="12sp"
                     android:textColor="@color/color_text_light"
                     android:layout_toRightOf="@id/game_time"
+                    android:layout_toEndOf="@id/game_time"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:layout_centerVertical="true"
                     tools:text="First Knockout Round" />
 
@@ -147,6 +153,7 @@
                     android:scaleType="fitCenter"
                     android:alpha="0.3"
                     android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true" />
 
             </RelativeLayout>
