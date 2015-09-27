@@ -22,7 +22,6 @@ import barqsoft.footballscores.R;
 
 public class FetchService extends IntentService {
 
-    public static final String LOG_TAG = "FetchService";
     private static final String TAG = FetchService.class.getSimpleName();
 
     public FetchService() {
@@ -84,7 +83,7 @@ public class FetchService extends IntentService {
                 processJSONdata(body, true);
             }
         } catch (IOException | JSONException e) {
-            Log.d(LOG_TAG, "Could not connect to server.");
+            Log.d(TAG, "Could not connect to server.");
         }
     }
 
@@ -166,7 +165,7 @@ public class FetchService extends IntentService {
                             date = format.format(fragmentDate);
                         }
                     } catch (Exception e) {
-                        Log.e(LOG_TAG, e.getMessage());
+                        Log.e(TAG, e.getMessage());
                     }
 
                     home = matchData.getString(HOME_TEAM);
@@ -195,7 +194,7 @@ public class FetchService extends IntentService {
             this.getContentResolver().bulkInsert(
                     DatabaseContract.ScoresTable.BASE_CONTENT_URI, insertData);
         } catch (JSONException e) {
-            Log.e(LOG_TAG, e.getMessage());
+            Log.e(TAG, e.getMessage());
         }
 
     }
