@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.support.v4.widget.CursorAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,9 @@ import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -97,9 +101,21 @@ public class ScoresAdapter extends CursorAdapter {
             score = "@";
         }
 
+        SimpleDateFormat toDate = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss'Z'");
+        SimpleDateFormat toTime = new SimpleDateFormat("h:mm a");
+        String dateStr = "2006-01-02T" + cursor.getString(COL_MATCH_TIME) + ":00Z";
+
+        Date gameDate;
+        try {
+            gameDate = toDate.parse(dateStr);
+        } catch (ParseException e) {
+            Log.d(TAG, "date parse " + e.toString());
+            gameDate = new Date();
+        }
+
         mHolder.homeName.setText(homeTeamName);
         mHolder.awayName.setText(awayTeamName);
-        mHolder.date.setText(cursor.getString(COL_MATCH_TIME));
+        mHolder.date.setText(toTime.format(gameDate));
         mHolder.score.setText(score);
 
         bindEmblem(mTeams.get(homeTeamName), mHolder.homeCrest);

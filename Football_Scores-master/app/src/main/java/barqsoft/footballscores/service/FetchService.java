@@ -145,8 +145,6 @@ public class FetchService extends IntentService {
                     }
 
                     date = matchData.getString(MATCH_DATE);
-
-                    // FIXME: parse the string to a date
                     time = date.substring(date.indexOf("T") + 1, date.indexOf("Z"));
                     date = date.substring(0, date.indexOf("T"));
                     SimpleDateFormat matchDate = new SimpleDateFormat("yyyy-MM-ddHH:mm:ss");

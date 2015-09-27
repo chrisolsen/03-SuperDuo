@@ -73,6 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:textSize="12sp"
                     tools:text="@string/test_text" />
 
             </LinearLayout>
