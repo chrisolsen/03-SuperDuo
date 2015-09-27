@@ -2,6 +2,7 @@ package barqsoft.footballscores;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.support.v4.widget.CursorAdapter;
@@ -106,22 +107,41 @@ public class ScoresAdapter extends CursorAdapter {
             score = "@";
         }
 
-        SimpleDateFormat toDate = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss'Z'");
+        SimpleDateFormat parseDate = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss'Z'");
         SimpleDateFormat toTime = new SimpleDateFormat("h:mm a");
+        SimpleDateFormat toDateTime = new SimpleDateFormat("EEEE, MMMM d 'at' h:mm a");
         String dateStr = "2006-01-02T" + cursor.getString(COL_MATCH_TIME) + ":00Z";
 
-        Date gameDate;
+        Resources r = context.getResources();
+        Date happensOn;
+        String gameTimeStr;
+        String gameDateContentDesc;
+
         try {
-            gameDate = toDate.parse(dateStr);
+            happensOn = parseDate.parse(dateStr);
+            gameDateContentDesc = toDateTime.format(happensOn);
+            gameTimeStr = toTime.format(happensOn);
+
+            if (homeScore >=0 && awayScore >= 0) {
+                String desc = String.format(r.getString(R.string.content_description_game_happened), gameDateContentDesc, homeTeamName, awayTeamName, homeScore, awayScore);
+                view.setContentDescription(desc);
+            } else {
+                String desc = String.format(r.getString(R.string.content_description_game_upcoming), gameDateContentDesc, homeTeamName, awayTeamName);
+                view.setContentDescription(desc);
+            }
         } catch (ParseException e) {
-            gameDate = new Date();
+            gameTimeStr = "";
         }
 
         mHolder.homeName.setText(homeTeamName);
         mHolder.awayName.setText(awayTeamName);
-        mHolder.date.setText(toTime.format(gameDate));
+        mHolder.date.setText(gameTimeStr);
         mHolder.score.setText(score);
         mHolder.matchDay.setText(getMatchDay(matchDay, leagueId));
+        mHolder.shareButton.setContentDescription(
+                String.format(r.getString(R.string.content_description_share_button), homeTeamName, awayTeamName)
+        );
+
         mHolder.shareButton.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
             public void onClick(View v) {

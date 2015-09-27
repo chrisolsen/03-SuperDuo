@@ -147,8 +147,7 @@
                     android:scaleType="fitCenter"
                     android:alpha="0.3"
                     android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:contentDescription="@string/content_description_share_button" />
+                    android:layout_centerVertical="true" />
 
             </RelativeLayout>
 
