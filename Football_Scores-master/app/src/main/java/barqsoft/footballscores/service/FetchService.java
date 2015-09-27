@@ -21,6 +21,7 @@ import barqsoft.footballscores.DatabaseContract;
 import barqsoft.footballscores.R;
 
 public class FetchService extends IntentService {
+
     public static final String LOG_TAG = "FetchService";
     private static final String TAG = FetchService.class.getSimpleName();
 
@@ -118,7 +119,7 @@ public class FetchService extends IntentService {
         String homeGoals;
         String awayGoals;
         String matchId;
-        String matchDay;
+        int matchDay;
 
         try {
             JSONArray matches = new JSONObject(JSONdata).getJSONArray(FIXTURES);
@@ -172,7 +173,7 @@ public class FetchService extends IntentService {
                     away = matchData.getString(AWAY_TEAM);
                     homeGoals = matchData.getJSONObject(RESULT).getString(HOME_GOALS);
                     awayGoals = matchData.getJSONObject(RESULT).getString(AWAY_GOALS);
-                    matchDay = matchData.getString(MATCH_DAY);
+                    matchDay = matchData.getInt(MATCH_DAY);
                     ContentValues matchValues = new ContentValues();
 
                     matchValues.put(DatabaseContract.ScoresTable.MATCH_ID, matchId);

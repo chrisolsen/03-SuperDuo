@@ -21,6 +21,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ScoresAdapter extends CursorAdapter {
+
+    private static final int CHAMPIONS_LEAGUE = 405;
+
     public static final int COL_HOME = 3;
     public static final int COL_AWAY = 4;
     public static final int COL_HOME_GOALS = 6;
@@ -30,7 +33,6 @@ public class ScoresAdapter extends CursorAdapter {
     public static final int COL_ID = 8;
     public static final int COL_MATCH_TIME = 2;
     private static final String TAG = ScoresAdapter.class.getSimpleName();
-    public double detailMatchId = 0;
     private String FOOTBALL_SCORES_HASHTAG = "#Football_Scores";
 
     private Map<String, String> mTeams = new HashMap<>();
@@ -38,7 +40,7 @@ public class ScoresAdapter extends CursorAdapter {
     public ScoresAdapter(Context context, Cursor cursor, int flags) {
         super(context, cursor, flags);
 
-//        mContext = context;
+        mContext = context;
 
         Cursor c = context.getContentResolver().query(
                 DatabaseContract.TeamsTable.CONTENT_URI,
@@ -89,6 +91,9 @@ public class ScoresAdapter extends CursorAdapter {
 
         String homeTeamName = cursor.getString(COL_HOME);
         String awayTeamName = cursor.getString(COL_AWAY);
+        int matchDay = cursor.getInt(COL_MATCH_DAY);
+
+        int leagueId = cursor.getInt(COL_LEAGUE);
         int homeScore = cursor.getInt(COL_HOME_GOALS);
         int awayScore = cursor.getInt(COL_AWAY_GOALS);
         String score;
@@ -109,7 +114,6 @@ public class ScoresAdapter extends CursorAdapter {
         try {
             gameDate = toDate.parse(dateStr);
         } catch (ParseException e) {
-            Log.d(TAG, "date parse " + e.toString());
             gameDate = new Date();
         }
 
@@ -117,9 +121,28 @@ public class ScoresAdapter extends CursorAdapter {
         mHolder.awayName.setText(awayTeamName);
         mHolder.date.setText(toTime.format(gameDate));
         mHolder.score.setText(score);
+        mHolder.matchDay.setText(getMatchDay(matchDay, leagueId));
 
         bindEmblem(mTeams.get(homeTeamName), mHolder.homeCrest);
         bindEmblem(mTeams.get(awayTeamName), mHolder.awayCrest);
+    }
+
+    private String getMatchDay(int matchDay, int leagueId) {
+        if (leagueId == CHAMPIONS_LEAGUE) {
+            if (matchDay <= 6) {
+                return mContext.getResources().getString(R.string.group_stage_text);
+            } else if (matchDay == 7 || matchDay == 8) {
+                return mContext.getResources().getString(R.string.first_knockout_round);
+            } else if (matchDay == 9 || matchDay == 10) {
+                return mContext.getResources().getString(R.string.quarter_final);
+            } else if (matchDay == 11 || matchDay == 12) {
+                return mContext.getResources().getString(R.string.semi_final);
+            } else {
+                return mContext.getResources().getString(R.string.final_text);
+            }
+        }
+
+        return "";
     }
 
     // FIXME: prevent share provider from being able to be saved
@@ -138,15 +161,16 @@ public class ScoresAdapter extends CursorAdapter {
         public TextView date;
         public ImageView homeCrest;
         public ImageView awayCrest;
-        public double matchId;
+        public TextView matchDay;
 
         public ViewHolder(View view) {
             homeName = (TextView) view.findViewById(R.id.home_name);
             awayName = (TextView) view.findViewById(R.id.away_name);
             score = (TextView) view.findViewById(R.id.score_textview);
-            date = (TextView) view.findViewById(R.id.data_textview);
+            date = (TextView) view.findViewById(R.id.game_time);
             homeCrest = (ImageView) view.findViewById(R.id.home_crest);
             awayCrest = (ImageView) view.findViewById(R.id.away_crest);
+            matchDay = (TextView) view.findViewById(R.id.match_day);
         }
     }
 
