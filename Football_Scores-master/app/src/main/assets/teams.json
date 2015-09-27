@@ -1,0 +1,1466 @@
+[
+  {
+    "id": 5,
+    "name": "FC Bayern München",
+    "shortName": "Bayern",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/commons/c/c5/Logo_FC_Bayern_M%C3%BCnchen.svg"
+  },
+  {
+    "id": 7,
+    "name": "Hamburger SV",
+    "shortName": "HSV",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/commons/6/66/HSV-Logo.svg"
+  },
+  {
+    "id": 16,
+    "name": "FC Augsburg",
+    "shortName": "Augsburg",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/b/b5/Logo_FC_Augsburg.svg"
+  },
+  {
+    "id": 9,
+    "name": "Hertha BSC",
+    "shortName": "Hertha",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/8/81/Hertha_BSC_Logo_2012.svg"
+  },
+  {
+    "id": 3,
+    "name": "Bayer Leverkusen",
+    "shortName": "Leverkusen",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/9/95/Bayer_04_Leverkusen_Logo.svg"
+  },
+  {
+    "id": 2,
+    "name": "TSG 1899 Hoffenheim",
+    "shortName": "Hoffenheim",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/e/e7/Logo_TSG_Hoffenheim.svg"
+  },
+  {
+    "id": 55,
+    "name": "SV Darmstadt 98",
+    "shortName": "Darmstadt",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/8/87/Svdarmstadt98.svg"
+  },
+  {
+    "id": 8,
+    "name": "Hannover 96",
+    "shortName": "Hannover",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/c/cd/Hannover_96_Logo.svg"
+  },
+  {
+    "id": 15,
+    "name": "1. FSV Mainz 05",
+    "shortName": "Mainz",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/0/0b/FSV_Mainz_05_Logo.svg"
+  },
+  {
+    "id": 31,
+    "name": "FC Ingolstadt 04",
+    "shortName": "Ingolstadt",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/5/55/FC-Ingolstadt_logo.svg"
+  },
+  {
+    "id": 12,
+    "name": "Werder Bremen",
+    "shortName": "Bremen",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/commons/b/be/SV-Werder-Bremen-Logo.svg"
+  },
+  {
+    "id": 6,
+    "name": "FC Schalke 04",
+    "shortName": "Schalke",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/6/6d/FC_Schalke_04_Logo.svg"
+  },
+  {
+    "id": 4,
+    "name": "Borussia Dortmund",
+    "shortName": "Dortmund",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/commons/6/67/Borussia_Dortmund_logo.svg"
+  },
+  {
+    "id": 18,
+    "name": "Bor. Mönchengladbach",
+    "shortName": "M'gladbach",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/Borussia_M%C3%B6nchengladbach_logo.svg"
+  },
+  {
+    "id": 11,
+    "name": "VfL Wolfsburg",
+    "shortName": "Wolfsburg",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/b/bc/VfL_Wolfsburg_Logo_wei%C3%9F.svg"
+  },
+  {
+    "id": 19,
+    "name": "Eintracht Frankfurt",
+    "shortName": "Eintr. Frankfurt",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/commons/0/04/Eintracht_Frankfurt_Logo.svg"
+  },
+  {
+    "id": 10,
+    "name": "VfB Stuttgart",
+    "shortName": "Stuttgart",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/commons/a/ab/VfB_Stuttgart_Logo.svg"
+  },
+  {
+    "id": 1,
+    "name": "1. FC Köln",
+    "shortName": "Köln",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/1/16/1._FC_K%C3%B6ln.svg"
+  },
+  {
+    "id": 25,
+    "name": "MSV Duisburg",
+    "shortName": "Duisburg",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/3/38/Msv_duisburg%28neu%29.svg"
+  },
+  {
+    "id": 13,
+    "name": "1. FC Kaiserslautern",
+    "shortName": "K'lautern",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/commons/d/d3/Logo_1_FC_Kaiserslautern.svg"
+  },
+  {
+    "id": 33,
+    "name": "Eintracht Braunschweig",
+    "shortName": "Braunschweig",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/4/45/Logo_Eintracht_Braunschweig.svg"
+  },
+  {
+    "id": 46,
+    "name": "SV Sandhausen",
+    "shortName": "Sandhausen",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/SV_Sandhausen.svg"
+  },
+  {
+    "id": 17,
+    "name": "SC Freiburg",
+    "shortName": "Freiburg",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/f/f1/SC-Freiburg_Logo-neu.svg"
+  },
+  {
+    "id": 14,
+    "name": "1. FC Nürnberg",
+    "shortName": "Nürnberg",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/commons/f/fa/1._FC_N%C3%BCrnberg_logo.svg"
+  },
+  {
+    "id": 30,
+    "name": "FSV Frankfurt",
+    "shortName": "FSV",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/c/ce/FSV_Frankfurt_1899.svg"
+  },
+  {
+    "id": 721,
+    "name": "Red Bull Leipzig",
+    "shortName": "RB Leipzig",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/d/d4/RB_Leipzig_2010_logo.svg"
+  },
+  {
+    "id": 21,
+    "name": "SpVgg Greuther Fürth",
+    "shortName": "Fürth",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/6/6d/SpVgg_Greuther_F%C3%BCrth_logo.svg"
+  },
+  {
+    "id": 32,
+    "name": "Karlsruher SC",
+    "shortName": "Karlsruhe",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/a/a8/Karlsruher_SC_Logo.svg"
+  },
+  {
+    "id": 44,
+    "name": "1. FC Heidenheim 1846",
+    "shortName": "Heidenheim",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/commons/9/9d/1._FC_Heidenheim_1846.svg"
+  },
+  {
+    "id": 26,
+    "name": "TSV 1860 München",
+    "shortName": "1860 München",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/commons/4/48/TSV_1860_M%C3%BCnchen.svg"
+  },
+  {
+    "id": 29,
+    "name": "SC Paderborn 07",
+    "shortName": "Paderborn",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/SC_Paderborn_07_Logo.svg"
+  },
+  {
+    "id": 36,
+    "name": "VfL Bochum",
+    "shortName": "Bochum",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/4/43/Logo_VfL_Bochum.svg"
+  },
+  {
+    "id": 20,
+    "name": "FC St. Pauli",
+    "shortName": "Pauli",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/2/2f/Logo_FC_St_Pauli.svg"
+  },
+  {
+    "id": 38,
+    "name": "Arminia Bielefeld",
+    "shortName": "Bielefeld",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/e/e5/Logo_Arminia_Bielefeld.svg"
+  },
+  {
+    "id": 28,
+    "name": "1. FC Union Berlin",
+    "shortName": "Union",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/e/e4/1._FC_Union_Berlin.svg"
+  },
+  {
+    "id": 24,
+    "name": "Fortuna Düsseldorf",
+    "shortName": "Duseldorf",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/commons/9/94/Fortuna_D%C3%BCsseldorf.svg"
+  },
+  {
+    "id": 521,
+    "name": "OSC Lille",
+    "shortName": "Lille",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/0/08/LOSC_Lille_Crest_2012.png"
+  },
+  {
+    "id": 524,
+    "name": "Paris Saint-Germain",
+    "shortName": "PSG",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/1/1e/Paris_Saint-Germain_%28seit_2013%29.gif"
+  },
+  {
+    "id": 531,
+    "name": "ES Troyes AC",
+    "shortName": "Troyes",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/b/bf/ES_Troyes_AC.svg"
+  },
+  {
+    "id": 555,
+    "name": "Gazélec Ajaccio",
+    "shortName": "Ajaccio",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/en/4/46/Gaz%C3%A9lec_Ajaccio_logo.png"
+  },
+  {
+    "id": 516,
+    "name": "Olympique de Marseille",
+    "shortName": "Marseille",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/2/27/Olympique_Marseille_Logo.svg"
+  },
+  {
+    "id": 514,
+    "name": "SM Caen",
+    "shortName": "Caen",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/fr/7/79/LogoSmc2013.png"
+  },
+  {
+    "id": 522,
+    "name": "OGC Nice",
+    "shortName": "Nice",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/0/05/OGC_Nice_logo.png"
+  },
+  {
+    "id": 548,
+    "name": "AS Monaco FC",
+    "shortName": "Monaco",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/3/3c/AS_Monaco.svg"
+  },
+  {
+    "id": 543,
+    "name": "FC Nantes",
+    "shortName": "Nantes",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/5/50/FC_Nantes_%28seit_2008%29.svg"
+  },
+  {
+    "id": 538,
+    "name": "EA Guingamp",
+    "shortName": "Guingamp",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/a/ae/EA_Guingamp_Logo.svg"
+  },
+  {
+    "id": 518,
+    "name": "Montpellier Hérault SC",
+    "shortName": "Montpellier",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/3/35/HSC_Montpellier_Logo.svg"
+  },
+  {
+    "id": 532,
+    "name": "Angers SCO",
+    "shortName": "Angers",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/0/0f/SCO_Angers.svg"
+  },
+  {
+    "id": 536,
+    "name": "SC Bastia",
+    "shortName": "Bastia",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/6/69/SC_Bastia.svg"
+  },
+  {
+    "id": 529,
+    "name": "Stade Rennais FC",
+    "shortName": "Rennes",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/b/b6/Stade_Rennais_Football_Club.svg"
+  },
+  {
+    "id": 526,
+    "name": "FC Girondins de Bordeaux",
+    "shortName": "Bordeaux",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/e/ea/Girondins_Bordeaux_Logo.svg"
+  },
+  {
+    "id": 547,
+    "name": "Stade de Reims",
+    "shortName": "Reims",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/9/9e/Stade_Reims_Logo.svg"
+  },
+  {
+    "id": 511,
+    "name": "Toulouse FC",
+    "shortName": "Toulouse",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/0/0a/FC_Toulouse_Logo.svg"
+  },
+  {
+    "id": 527,
+    "name": "AS Saint-Étienne",
+    "shortName": "St. Etienne",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/b/b1/AS_Saint-Etienne_%28aktuell%29.svg"
+  },
+  {
+    "id": 523,
+    "name": "Olympique Lyonnais",
+    "shortName": "Lyon",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/f/f1/Olympique_Lyon.svg"
+  },
+  {
+    "id": 525,
+    "name": "FC Lorient",
+    "shortName": "Lorient",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/c/c4/FC_Lorient_neu.png"
+  },
+  {
+    "id": 510,
+    "name": "Ajaccio AC",
+    "shortName": "Ajaccio",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/5/58/AC_Ajaccio.svg"
+  },
+  {
+    "id": 528,
+    "name": "Dijon FCO",
+    "shortName": "Dijon",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/e/e1/FCO_Dijon.svg"
+  },
+  {
+    "id": 1045,
+    "name": "Paris FC",
+    "shortName": "Paris",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/de/b/be/Logo_ParisFC_2011.png"
+  },
+  {
+    "id": 540,
+    "name": "FC Stade Lavallois Mayenne",
+    "shortName": "Stade Laval",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/4/49/Stade_Laval.svg"
+  },
+  {
+    "id": 557,
+    "name": "Chamois Niortais FC",
+    "shortName": "Niort",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/0/0a/Chamois_Niort_Logo.svg"
+  },
+  {
+    "id": 515,
+    "name": "FC Valenciennes",
+    "shortName": "Valenciennes",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/e/eb/Valenciennes_AFC_%282008%29.svg"
+  },
+  {
+    "id": 556,
+    "name": "Nîmes Olympique",
+    "shortName": "Nîmes",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/b/b6/Olympique_Nimes.svg"
+  },
+  {
+    "id": 513,
+    "name": "Évian Thonon Gaillard FC",
+    "shortName": "Evian",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/c/cb/Evian_Thonon_Gaillard.svg"
+  },
+  {
+    "id": 567,
+    "name": "Red Star 93",
+    "shortName": null,
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/fr/b/bc/Logo_RedStarFC.png"
+  },
+  {
+    "id": 573,
+    "name": "US Créteil",
+    "shortName": "Créteil",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/d/d1/US_Cr%C3%A9teil.svg"
+  },
+  {
+    "id": 541,
+    "name": "Clermont Foot Auvergne",
+    "shortName": "Clermont",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/a/a1/Clermont_Foot_Auvergne.svg"
+  },
+  {
+    "id": 517,
+    "name": "Sochaux FC",
+    "shortName": "Sochaux",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/a/ae/FC_Sochaux_Logo_2010.svg"
+  },
+  {
+    "id": 1042,
+    "name": "FC Bourg-en-Bresse Péronnas",
+    "shortName": null,
+    "crestUrl": "https://en.wikipedia.org/wiki/Football_Bourg-en-Bresse_P%C3%A9ronnas_01#/media/File:Football_club_Bourg-P%C3%A9ronnas.svg"
+  },
+  {
+    "id": 533,
+    "name": "Le Havre AC",
+    "shortName": "Le HAC",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/4/47/Le_Havre_AC.svg"
+  },
+  {
+    "id": 519,
+    "name": "AJ Auxerre",
+    "shortName": "Auxerre",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/5/5b/AJ_Auxerre.svg"
+  },
+  {
+    "id": 512,
+    "name": "Stade Brestois",
+    "shortName": "Brest",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/c/cb/Stade_Brestois_29.svg"
+  },
+  {
+    "id": 545,
+    "name": "FC Metz",
+    "shortName": "Metz",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/b/ba/FC_Metz_Logo.svg"
+  },
+  {
+    "id": 546,
+    "name": "RC Lens",
+    "shortName": "Lens",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/d/d7/RC_Lens_Logo.svg"
+  },
+  {
+    "id": 520,
+    "name": "AS Nancy",
+    "shortName": "Nancy",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/8/8f/AS_Nancy_Logo.svg"
+  },
+  {
+    "id": 544,
+    "name": "RC Tours",
+    "shortName": "Tours",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/9/9a/FC_Tours.svg"
+  },
+  {
+    "id": 66,
+    "name": "Manchester United FC",
+    "shortName": "ManU",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg"
+  },
+  {
+    "id": 73,
+    "name": "Tottenham Hotspur FC",
+    "shortName": "Spurs",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/b/b4/Tottenham_Hotspur.svg"
+  },
+  {
+    "id": 1044,
+    "name": "AFC Bournemouth",
+    "shortName": "Bournemouth",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/de/4/41/Afc_bournemouth.svg"
+  },
+  {
+    "id": 58,
+    "name": "Aston Villa FC",
+    "shortName": "Aston Villa",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/9/9f/Aston_Villa_logo.svg"
+  },
+  {
+    "id": 62,
+    "name": "Everton FC",
+    "shortName": "Everton",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/f/f9/Everton_FC.svg"
+  },
+  {
+    "id": 346,
+    "name": "Watford FC",
+    "shortName": "Watford",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/e/e2/Watford.svg"
+  },
+  {
+    "id": 338,
+    "name": "Leicester City FC",
+    "shortName": "Foxes",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/en/6/63/Leicester02.png"
+  },
+  {
+    "id": 71,
+    "name": "Sunderland AFC",
+    "shortName": "Sunderland",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/6/60/AFC_Sunderland.svg"
+  },
+  {
+    "id": 68,
+    "name": "Norwich City FC",
+    "shortName": "Norwich",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/8/8c/Norwich_City.svg"
+  },
+  {
+    "id": 354,
+    "name": "Crystal Palace FC",
+    "shortName": "Crystal",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/b/bf/Crystal_Palace_F.C._logo_%282013%29.png"
+  },
+  {
+    "id": 61,
+    "name": "Chelsea FC",
+    "shortName": "Chelsea",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/5/5c/Chelsea_crest.svg"
+  },
+  {
+    "id": 72,
+    "name": "Swansea City FC",
+    "shortName": "Swans",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/a/ab/Swansea_City_Logo.svg"
+  },
+  {
+    "id": 67,
+    "name": "Newcastle United FC",
+    "shortName": "Newcastle",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/5/56/Newcastle_United_Logo.svg"
+  },
+  {
+    "id": 340,
+    "name": "Southampton FC",
+    "shortName": "Southampton",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/c/c9/FC_Southampton.svg"
+  },
+  {
+    "id": 57,
+    "name": "Arsenal FC",
+    "shortName": "Arsenal",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg"
+  },
+  {
+    "id": 563,
+    "name": "West Ham United FC",
+    "shortName": "West Ham",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/e/e0/West_Ham_United_FC.svg"
+  },
+  {
+    "id": 70,
+    "name": "Stoke City FC",
+    "shortName": "Stoke",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/a/a3/Stoke_City.svg"
+  },
+  {
+    "id": 64,
+    "name": "Liverpool FC",
+    "shortName": "Liverpool",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/0/0a/FC_Liverpool.svg"
+  },
+  {
+    "id": 74,
+    "name": "West Bromwich Albion FC",
+    "shortName": "West Bromwich",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/8/8b/West_Bromwich_Albion.svg"
+  },
+  {
+    "id": 65,
+    "name": "Manchester City FC",
+    "shortName": "ManCity",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/f/fd/ManCity.svg"
+  },
+  {
+    "id": 560,
+    "name": "RC Deportivo La Coruna",
+    "shortName": "La Coruna",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/en/4/4e/RC_Deportivo_La_Coru%C3%B1a_logo.svg"
+  },
+  {
+    "id": 92,
+    "name": "Real Sociedad de Fútbol",
+    "shortName": "Real Sociedad",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/5/55/Real_Sociedad_San_Sebasti%C3%A1n.svg"
+  },
+  {
+    "id": 80,
+    "name": "RCD Espanyol",
+    "shortName": "Espanyol",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/a/a7/RCD_Espanyol_De_Barcelona.svg"
+  },
+  {
+    "id": 82,
+    "name": "Getafe CF",
+    "shortName": "Getafe",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/d/de/Getafe_CF.svg"
+  },
+  {
+    "id": 78,
+    "name": "Club Atlético de Madrid",
+    "shortName": "Atlético",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/c/c1/Atletico_Madrid_logo.svg"
+  },
+  {
+    "id": 275,
+    "name": "UD Las Palmas",
+    "shortName": "Las Palmas",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/en/2/20/UD_Las_Palmas_logo.svg"
+  },
+  {
+    "id": 87,
+    "name": "Rayo Vallecano de Madrid",
+    "shortName": "Vallecano",
+    "crestUrl": "upload.wikimedia.org/wikipedia/de/1/12/Rayo_vallecano_madrid.svg"
+  },
+  {
+    "id": 95,
+    "name": "Valencia CF",
+    "shortName": "Valencia",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/7/75/FC_Valencia.svg"
+  },
+  {
+    "id": 84,
+    "name": "Málaga CF",
+    "shortName": "Málaga",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/e/e8/FC_M%C3%A1laga.svg"
+  },
+  {
+    "id": 559,
+    "name": "Sevilla FC",
+    "shortName": "Sevilla",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/en/8/86/Sevilla_cf_200px.png"
+  },
+  {
+    "id": 77,
+    "name": "Athletic Club",
+    "shortName": "Bilbao",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/7/7f/Athletic_Club_Bilbao.svg"
+  },
+  {
+    "id": 81,
+    "name": "FC Barcelona",
+    "shortName": "Barcelona",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/a/aa/Fc_barcelona.svg"
+  },
+  {
+    "id": 96,
+    "name": "Sporting Gijón",
+    "shortName": "Gijón",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/4/48/Real_Sporting_de_Gijon.svg"
+  },
+  {
+    "id": 86,
+    "name": "Real Madrid CF",
+    "shortName": "Real Madrid",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/3/3f/Real_Madrid_Logo.svg"
+  },
+  {
+    "id": 88,
+    "name": "Levante UD",
+    "shortName": "Levante",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/1/1f/Levante_ud.svg"
+  },
+  {
+    "id": 558,
+    "name": "RC Celta de Vigo",
+    "shortName": "Celta Vigo",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/0/0c/Celta_Vigo.svg"
+  },
+  {
+    "id": 90,
+    "name": "Real Betis",
+    "shortName": "Betis",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/4/43/Real_Betis.svg"
+  },
+  {
+    "id": 94,
+    "name": "Villarreal CF",
+    "shortName": "Villareal",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/7/70/Villarreal_CF_logo.svg"
+  },
+  {
+    "id": 83,
+    "name": "Granada CF",
+    "shortName": "Granada",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/d/d3/Granada_CF.svg"
+  },
+  {
+    "id": 278,
+    "name": "SD Eibar",
+    "shortName": "Eibar",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/en/7/75/SD_Eibar_logo.svg"
+  },
+  {
+    "id": 595,
+    "name": "CD Mirandes",
+    "shortName": "Mirandes",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/en/b/b8/CD_Mirand%C3%A9s_logo.svg"
+  },
+  {
+    "id": 91,
+    "name": "Real Zaragoza",
+    "shortName": "Saragossa",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/8/8f/Real_zaragoza.svg"
+  },
+  {
+    "id": 1048,
+    "name": "Real Oviedo",
+    "shortName": "Oviedo",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/de/a/a9/Real_Oviedo.svg"
+  },
+  {
+    "id": 596,
+    "name": "CD Lugo",
+    "shortName": "Lugo",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/en/0/09/CD_Lugo_logo.svg"
+  },
+  {
+    "id": 286,
+    "name": "SD Ponferradina",
+    "shortName": "Ponferradina",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/en/0/0b/SD_Ponferradina_logo.svg"
+  },
+  {
+    "id": 285,
+    "name": "Elche FC",
+    "shortName": "Elche",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/a/af/Elche_CF.svg"
+  },
+  {
+    "id": 260,
+    "name": "CD Numancia de Soria",
+    "shortName": "Numancia",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/en/0/07/CD_Numancia_logo.svg"
+  },
+  {
+    "id": 254,
+    "name": "CD Tenerife",
+    "shortName": "Tenerife",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/f/f4/CD_Tenerife_Logo.svg"
+  },
+  {
+    "id": 304,
+    "name": "AD Alcorcón",
+    "shortName": "Alcorcón",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/en/2/28/AD_Alcorc%C3%B3n_logo.svg"
+  },
+  {
+    "id": 89,
+    "name": "RCD Mallorca",
+    "shortName": "Mallorca",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/e/e0/Rcd_mallorca.svg"
+  },
+  {
+    "id": 744,
+    "name": "UE Llagostera",
+    "shortName": "Llagostera",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/en/4/4a/UE_Llagostera.png"
+  },
+  {
+    "id": 79,
+    "name": "CA Osasuna",
+    "shortName": "Osasuna",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/c/ca/Atletico_Osasuna.svg"
+  },
+  {
+    "id": 263,
+    "name": "Deportivo Alavés",
+    "shortName": "Alaves",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/en/2/2e/Deportivo_Alaves_logo.svg"
+  },
+  {
+    "id": 267,
+    "name": "UD Almeria",
+    "shortName": "Almeria",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/6/69/Union_Deportiva_Almeria.svg"
+  },
+  {
+    "id": 745,
+    "name": "CD Leganes",
+    "shortName": "Leganes",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/en/thumb/0/02/Club_Deportivo_Legan%C3%A9s.png/180px-Club_Deportivo_Legan%C3%A9s.png"
+  },
+  {
+    "id": 265,
+    "name": "Gimnàstic de Tarragona",
+    "shortName": "Tarragona",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/d/df/Gimn%C3%A0stic_tarragona_200px.png"
+  },
+  {
+    "id": 295,
+    "name": "Córdoba CF",
+    "shortName": "Córdoba",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/en/9/96/C%C3%B3rdoba_CF_logo.svg"
+  },
+  {
+    "id": 250,
+    "name": "Real Valladolid",
+    "shortName": "Valladolid",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/6/6e/Real_Valladolid_Logo.svg"
+  },
+  {
+    "id": 1046,
+    "name": "Athletic Bilbao B",
+    "shortName": "Athletic Club II",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/de/thumb/7/7f/Athletic_Club_Bilbao.svg/150px-Athletic_Club_Bilbao.svg.png"
+  },
+  {
+    "id": 298,
+    "name": "Girona FC",
+    "shortName": "Girona",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/en/9/90/For_article_Girona_FC.svg"
+  },
+  {
+    "id": 450,
+    "name": "Hellas Verona FC",
+    "shortName": "H. Verona",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/a/a2/Hellas_Verona_1903_FC.svg"
+  },
+  {
+    "id": 100,
+    "name": "AS Roma",
+    "shortName": "Rom",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/3/32/AS_Rom.svg"
+  },
+  {
+    "id": 109,
+    "name": "Juventus Turin",
+    "shortName": "Juventus",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/d/d2/Juventus_Turin.svg"
+  },
+  {
+    "id": 115,
+    "name": "Udinese Calcio",
+    "shortName": "Udinese",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/b/b1/Udinese_Calcio.svg"
+  },
+  {
+    "id": 114,
+    "name": "US Cittá di Palermo",
+    "shortName": "Palermo",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/7/7f/US_Palermo.svg"
+  },
+  {
+    "id": 107,
+    "name": "Genoa CFC",
+    "shortName": "Genoa",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/7/76/Genoa_CFC.svg"
+  },
+  {
+    "id": 471,
+    "name": "US Sassuolo Calcio",
+    "shortName": "Sassuolo",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/a/a3/US_Sassuolo_Calcio.svg"
+  },
+  {
+    "id": 113,
+    "name": "SSC Napoli",
+    "shortName": "Neapel",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/commons/2/28/S.S.C._Napoli_logo.svg"
+  },
+  {
+    "id": 584,
+    "name": "UC Sampdoria",
+    "shortName": "Sampdoria",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/c/cc/Sampdoria_Genua.svg"
+  },
+  {
+    "id": 713,
+    "name": "Carpi FC",
+    "shortName": "Carpi",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/5/5f/Carpi_FC.png"
+  },
+  {
+    "id": 110,
+    "name": "SS Lazio",
+    "shortName": "L. Rom",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/thumb/4/47/Lazio_Rom.svg/500px-Lazio_Rom.svg.png"
+  },
+  {
+    "id": 103,
+    "name": "Bologna FC",
+    "shortName": "Bologna",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/9/92/FC_Bologna.svg"
+  },
+  {
+    "id": 108,
+    "name": "FC Internazionale Milano",
+    "shortName": "Inter",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/it/7/7e/Logo_FC_Internazionale_Milano_2014.png"
+  },
+  {
+    "id": 102,
+    "name": "Atalanta BC",
+    "shortName": "Bergamo",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/2/28/Atalanta_BC.svg"
+  },
+  {
+    "id": 470,
+    "name": "Frosinone Calcio",
+    "shortName": "Frosinone",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/it/c/c3/Frosinonestemma.png"
+  },
+  {
+    "id": 586,
+    "name": "Torino FC",
+    "shortName": "Torino",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/2/2e/Torino_FC_Logo.svg"
+  },
+  {
+    "id": 99,
+    "name": "ACF Fiorentina",
+    "shortName": "Fiorentina",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/d/de/AC_Florenz.svg"
+  },
+  {
+    "id": 98,
+    "name": "AC Milan",
+    "shortName": "Milan",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/9/9e/AC_Mailand_Logo.svg"
+  },
+  {
+    "id": 445,
+    "name": "Empoli FC",
+    "shortName": "Empoli",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/4/42/Logo_FC_Empoli.svg"
+  },
+  {
+    "id": 106,
+    "name": "AC Chievo Verona",
+    "shortName": "Chievo",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/3/3f/AC_Chievo_Verona.svg"
+  },
+  {
+    "id": 1049,
+    "name": "CD Tondela",
+    "shortName": "Tondela",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Emblema_CD_Tondela.png"
+  },
+  {
+    "id": 498,
+    "name": "Sporting Lisbon",
+    "shortName": "Lisbon",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/1/17/Logo_Sporting_Clube_de_Portugal_-_1930_-_1945.svg"
+  },
+  {
+    "id": 711,
+    "name": "Belenenses Lissabon",
+    "shortName": "B. Lisbon",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/d/db/Belenenses_Lissabon.svg"
+  },
+  {
+    "id": 496,
+    "name": "FC Rio Ave",
+    "shortName": "Rio Ave",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/6/63/Rio_Ave_FC.svg"
+  },
+  {
+    "id": 503,
+    "name": "FC Porto",
+    "shortName": "Porto",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/e/ed/FC_Porto_1922-2005.svg"
+  },
+  {
+    "id": 502,
+    "name": "Vitoria Guimaraes",
+    "shortName": "Guimares",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/8/81/Vitoria_Guimaraes.svg"
+  },
+  {
+    "id": 506,
+    "name": "Vitoria Setubal",
+    "shortName": "Setubal",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/b/bd/Vit%C3%B3ria_Set%C3%BAbal.svg"
+  },
+  {
+    "id": 810,
+    "name": "Boavista Porto FC",
+    "shortName": "Boavista",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/en/4/40/Boavista_F.C._logo.svg"
+  },
+  {
+    "id": 1052,
+    "name": "União Madeira",
+    "shortName": "Madeira",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/0/0f/UMadeira.png"
+  },
+  {
+    "id": 504,
+    "name": "Maritimo Funchal",
+    "shortName": "M Funchal",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/3/3b/Mar%C3%ADtimo_Funchal.svg"
+  },
+  {
+    "id": 583,
+    "name": "Moreirense FC",
+    "shortName": "Moreirense",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/pt/8/8c/Logo_Moreirense.svg"
+  },
+  {
+    "id": 712,
+    "name": "FC Arouca",
+    "shortName": "Arouca",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/b/b4/FC_Arouca.png"
+  },
+  {
+    "id": 497,
+    "name": "Sporting Braga",
+    "shortName": "Braga",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/f/f3/Sporting_Clube_de_Braga.svg"
+  },
+  {
+    "id": 501,
+    "name": "Nacional Funchal",
+    "shortName": "Funchal",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/e/ee/Nacional_Funchal.svg"
+  },
+  {
+    "id": 495,
+    "name": "Benfica Lissabon",
+    "shortName": "Lissabon",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/8/89/Logo_Benfica_Lissabon.svg"
+  },
+  {
+    "id": 582,
+    "name": "GD Estoril Praia",
+    "shortName": "Estoril",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/1/14/GD_Estoril_Praia.svg"
+  },
+  {
+    "id": 507,
+    "name": "FC Paços de Ferreira",
+    "shortName": "Ferreira",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/f/f2/FC_Pacos_de_Ferreira.svg"
+  },
+  {
+    "id": 509,
+    "name": "Académica de Coimbra",
+    "shortName": "Academica",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/b/b8/Logo_Academica_de_Coimbra.svg"
+  },
+  {
+    "id": 1054,
+    "name": "Magdeburg",
+    "shortName": null,
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/de/7/7b/FFC_Magdeburg.svg"
+  },
+  {
+    "id": 40,
+    "name": "Rot-Weiß Erfurt",
+    "shortName": "Erfurt",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/4/41/Rot_Weiss_Erfurt_Logo.svg"
+  },
+  {
+    "id": 39,
+    "name": "SV Wehen Wiesbaden",
+    "shortName": "Wehen",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/3/3d/Logo_SV_Wehen_Wiesbaden.svg"
+  },
+  {
+    "id": 1055,
+    "name": "W&uuml;rzburger Kickers",
+    "shortName": null,
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/b/b2/Kickers_Wurzburg.png"
+  },
+  {
+    "id": 34,
+    "name": "FC Hansa Rostock",
+    "shortName": "Rostock",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/7/78/FC_Hansa_Rostock.png"
+  },
+  {
+    "id": 56,
+    "name": "Werder Bremen II",
+    "shortName": "Bremen 2",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/SV-Werder-Bremen-Logo.svg"
+  },
+  {
+    "id": 202,
+    "name": "Stuttgarter Kickers",
+    "shortName": "Kickers",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/6/6f/Stuttgarter_Kickers.png"
+  },
+  {
+    "id": 204,
+    "name": "Fortuna Köln",
+    "shortName": "F Koln",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/1/15/SC_Fortuna_Koln.png"
+  },
+  {
+    "id": 51,
+    "name": "Preußen Münster",
+    "shortName": "Pr. Münster",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/b/be/SC_Preussen_Muenster_Logo.svg"
+  },
+  {
+    "id": 741,
+    "name": "SG Sonnenhof Großaspach",
+    "shortName": "Großaspach",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/1/1d/SG_Sonnenhof.svg"
+  },
+  {
+    "id": 720,
+    "name": "Holstein Kiel",
+    "shortName": "Kiel",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/3/30/Holstein_Kiel_Logo.svg"
+  },
+  {
+    "id": 740,
+    "name": "Mainz 05 II",
+    "shortName": "Mainz 05 II",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/0/0b/FSV_Mainz_05_Logo.svg"
+  },
+  {
+    "id": 22,
+    "name": "Erzgebirge Aue",
+    "shortName": "Aue",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/1/13/Fc_erzgebirge_aue.svg"
+  },
+  {
+    "id": 52,
+    "name": "VfL Osnabrück",
+    "shortName": "Osnabrück",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/0/00/Logo_Vfl_Osnabrueck.svg"
+  },
+  {
+    "id": 35,
+    "name": "Dynamo Dresden",
+    "shortName": "Dresden",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/e/e1/Logo_SG_Dynamo_Dresden_neu.svg"
+  },
+  {
+    "id": 45,
+    "name": "VfB Stuttgart II",
+    "shortName": "Stuttgart II",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/commons/a/ab/VfB_Stuttgart_Logo.svg"
+  },
+  {
+    "id": 50,
+    "name": "VfR Aalen",
+    "shortName": "Aalen",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/commons/2/2f/VfR_Aalen_Wappen.svg"
+  },
+  {
+    "id": 54,
+    "name": "Chemnitzer FC",
+    "shortName": "Chemnitz",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/commons/c/c5/Chemnitzer_FC_Logo.svg"
+  },
+  {
+    "id": 23,
+    "name": "Energie Cottbus",
+    "shortName": "Cottbus",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/1/12/Fcenergie.png"
+  },
+  {
+    "id": 554,
+    "name": "Hallescher FC",
+    "shortName": "Halle",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/0/00/Hallescher_FC_Logo_2012.svg"
+  },
+  {
+    "id": 665,
+    "name": "Roda JC Kerkrade",
+    "shortName": "Roda",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/3/36/Roda_JC_Kerkrade_%282011%29.svg"
+  },
+  {
+    "id": 671,
+    "name": "Heracles Almelo",
+    "shortName": "Almelo",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/d/d8/Heracles_Almelo.svg"
+  },
+  {
+    "id": 675,
+    "name": "Feyenoord Rotterdam",
+    "shortName": "Feyenoord",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/2/24/Logo_Feyenoord_Rotterdam.svg"
+  },
+  {
+    "id": 676,
+    "name": "FC Utrecht",
+    "shortName": "Utrecht",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/4/48/FC_Utrecht.svg"
+  },
+  {
+    "id": 682,
+    "name": "AZ Alkmaar",
+    "shortName": "Alkmaar",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/e/e0/AZ_Alkmaar.svg"
+  },
+  {
+    "id": 678,
+    "name": "Ajax Amsterdam",
+    "shortName": "Ajax",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/7/79/Ajax_Amsterdam.svg"
+  },
+  {
+    "id": 672,
+    "name": "Willem II",
+    "shortName": "Willem",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/de/7/7c/Willem_II_Tilburg.svg"
+  },
+  {
+    "id": 679,
+    "name": "Vitesse Arnhem",
+    "shortName": "Arnheim",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/4/41/Vitesse_Arnheim.svg"
+  },
+  {
+    "id": 680,
+    "name": "ADO Den Haag",
+    "shortName": "Den Haag",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/4/45/ADO_Den_Haag.svg"
+  },
+  {
+    "id": 674,
+    "name": "PSV Eindhoven",
+    "shortName": "Eindhoven",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/0/05/PSV_Eindhoven.svg"
+  },
+  {
+    "id": 673,
+    "name": "SC Heerenveen",
+    "shortName": "Heerenveen",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/e/e7/SC_Heerenveen.svg"
+  },
+  {
+    "id": 669,
+    "name": "De Graafschap",
+    "shortName": null,
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/de/2/28/VBV_De_Graafschap_Doetinchem.svg"
+  },
+  {
+    "id": 677,
+    "name": "FC Groningen",
+    "shortName": "Groningen",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/e/ef/FC_Groningen.svg"
+  },
+  {
+    "id": 666,
+    "name": "FC Twente Enschede",
+    "shortName": "Enschede",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/6/6a/FC_Twente_Enschede_%28ab_2006%29.svg"
+  },
+  {
+    "id": 684,
+    "name": "PEC Zwolle",
+    "shortName": "Zwolle",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/2/28/PEC_Zwolle_2012.svg"
+  },
+  {
+    "id": 717,
+    "name": "SC Cambuur-Leeuwarden",
+    "shortName": "Leeuwarden",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/5/5a/SC_Cambuur-Leeuwarden.svg"
+  },
+  {
+    "id": 667,
+    "name": "NEC Nijmegen",
+    "shortName": "Nijmegen",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/3/34/NEC_Nijmegen.svg"
+  },
+  {
+    "id": 670,
+    "name": "Excelsior",
+    "shortName": "Excelsior",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/f/f5/SBV_Excelsior_logo.png"
+  },
+  {
+    "id": 524,
+    "name": "Paris Saint-Germain",
+    "shortName": "PSG",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/1/1e/Paris_Saint-Germain_%28seit_2013%29.gif"
+  },
+  {
+    "id": 749,
+    "name": "Malmö FF",
+    "shortName": "Malmö",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/1/17/Logo_Malm%C3%B6_FF.svg"
+  },
+  {
+    "id": 495,
+    "name": "Benfica Lissabon",
+    "shortName": "Lissabon",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/8/89/Logo_Benfica_Lissabon.svg"
+  },
+  {
+    "id": 1056,
+    "name": "FC Astana",
+    "shortName": "Astana",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/9/96/FC_Astana_Logo.svg"
+  },
+  {
+    "id": 559,
+    "name": "Sevilla FC",
+    "shortName": "Sevilla",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/en/8/86/Sevilla_cf_200px.png"
+  },
+  {
+    "id": 18,
+    "name": "Bor. Mönchengladbach",
+    "shortName": "M'gladbach",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/Borussia_M%C3%B6nchengladbach_logo.svg"
+  },
+  {
+    "id": 65,
+    "name": "Manchester City FC",
+    "shortName": "ManCity",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/f/fd/ManCity.svg"
+  },
+  {
+    "id": 109,
+    "name": "Juventus Turin",
+    "shortName": "Juventus",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/d/d2/Juventus_Turin.svg"
+  },
+  {
+    "id": 610,
+    "name": "Galatasaray SK",
+    "shortName": "Galatasaray",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Galatasaray_Sports_Club_Logo.png"
+  },
+  {
+    "id": 78,
+    "name": "Club Atlético de Madrid",
+    "shortName": "Atlético",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/c/c1/Atletico_Madrid_logo.svg"
+  },
+  {
+    "id": 11,
+    "name": "VfL Wolfsburg",
+    "shortName": "Wolfsburg",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/b/bc/VfL_Wolfsburg_Logo_wei%C3%9F.svg"
+  },
+  {
+    "id": 751,
+    "name": "CSKA Moscow",
+    "shortName": "CSKA",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/f/fa/CSKA_Moscow_logo.png"
+  },
+  {
+    "id": 674,
+    "name": "PSV Eindhoven",
+    "shortName": "Eindhoven",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/0/05/PSV_Eindhoven.svg"
+  },
+  {
+    "id": 66,
+    "name": "Manchester United FC",
+    "shortName": "ManU",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg"
+  },
+  {
+    "id": 86,
+    "name": "Real Madrid CF",
+    "shortName": "Real Madrid",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/3/3f/Real_Madrid_Logo.svg"
+  },
+  {
+    "id": 724,
+    "name": "Shakhtar Donetsk",
+    "shortName": "Shakhtar",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/2/20/FC_Shakhtar_Donetsk.png"
+  },
+  {
+    "id": 95,
+    "name": "Valencia CF",
+    "shortName": "Valencia",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/7/75/FC_Valencia.svg"
+  },
+  {
+    "id": 731,
+    "name": "FC Zenit St. Petersburg",
+    "shortName": "Zenit",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/commons/2/25/FC_Zenit_1_star_2015_logo.png"
+  },
+  {
+    "id": 842,
+    "name": "Dynamo Kyiv",
+    "shortName": "Kyiv",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5b/FC_Dynamo_Kyiv_logo.png"
+  },
+  {
+    "id": 503,
+    "name": "FC Porto",
+    "shortName": "Porto",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/e/ed/FC_Porto_1922-2005.svg"
+  },
+  {
+    "id": 61,
+    "name": "Chelsea FC",
+    "shortName": "Chelsea",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/5/5c/Chelsea_crest.svg"
+  },
+  {
+    "id": 971,
+    "name": "Maccabi Tel Aviv",
+    "shortName": null,
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/f/f8/MTAFC_logo.png"
+  },
+  {
+    "id": 654,
+    "name": "Olympiacos F.C.",
+    "shortName": "Olympiacos",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/9/96/Logo_Olympiakos_Pir%C3%A4us.svg"
+  },
+  {
+    "id": 5,
+    "name": "FC Bayern München",
+    "shortName": "Bayern",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/commons/c/c5/Logo_FC_Bayern_M%C3%BCnchen.svg"
+  },
+  {
+    "id": 755,
+    "name": "GNK Dinamo Zagreb",
+    "shortName": "Zagreb",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Dinamo-Zagreb.png"
+  },
+  {
+    "id": 57,
+    "name": "Arsenal FC",
+    "shortName": "Arsenal",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg"
+  },
+  {
+    "id": 100,
+    "name": "AS Roma",
+    "shortName": "Rom",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/3/32/AS_Rom.svg"
+  },
+  {
+    "id": 81,
+    "name": "FC Barcelona",
+    "shortName": "Barcelona",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/a/aa/Fc_barcelona.svg"
+  },
+  {
+    "id": 3,
+    "name": "Bayer Leverkusen",
+    "shortName": "Leverkusen",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/9/95/Bayer_04_Leverkusen_Logo.svg"
+  },
+  {
+    "id": 748,
+    "name": "FK BATE Baryssau",
+    "shortName": "BATE",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/thumb/0/0a/Logo_BATE_Baryssau.svg/150px-Logo_BATE_Baryssau.svg.png"
+  },
+  {
+    "id": 1057,
+    "name": "KAA Gent",
+    "shortName": "Gent",
+    "crestUrl": "https://upload.wikimedia.org/wikipedia/en/f/f4/KAA_Gent_logo.svg"
+  },
+  {
+    "id": 523,
+    "name": "Olympique Lyonnais",
+    "shortName": "Lyon",
+    "crestUrl": "http://upload.wikimedia.org/wikipedia/de/f/f1/Olympique_Lyon.svg"
+  }
+]

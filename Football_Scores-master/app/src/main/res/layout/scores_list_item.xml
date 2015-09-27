@@ -134,6 +134,7 @@
                     android:textColor="@color/color_text_light"
                     android:layout_toRightOf="@id/game_time"
                     android:layout_marginLeft="10dp"
+                    android:layout_centerVertical="true"
                     tools:text="First Knockout Round" />
 
                 <ImageButton
@@ -145,7 +146,9 @@
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
                     android:alpha="0.3"
-                    android:layout_alignParentRight="true" />
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/content_description_share_button" />
 
             </RelativeLayout>
 

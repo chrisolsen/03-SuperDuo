@@ -125,12 +125,11 @@ public class ScoresAdapter extends CursorAdapter {
         mHolder.shareButton.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                shareIntent.setAction(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
                 shareIntent.putExtra(Intent.EXTRA_TEXT, "Share " + FOOTBALL_SCORES_HASHTAG);
-
+                context.startActivity(Intent.createChooser(shareIntent, context.getResources().getText(R.string.send_to)));
             }
         });
 
