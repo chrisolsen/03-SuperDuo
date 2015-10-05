@@ -56,10 +56,19 @@ public class ScoresAdapter extends CursorAdapter {
                 String url = c.getString(c.getColumnIndex(DatabaseContract.TeamsTable.TEAM_CREST_URL));
                 String[] parts = url.split("/");
                 String filename = parts[parts.length - 1];
-                String pngFile = filename.endsWith(".svg") ? filename.replace(".svg", ".png") : filename;
-                mTeams.put(name, pngFile);
+
+                if (filename.endsWith(".svg")) {
+                    filename = filename.replace(".svg", ".png");
+                }
+
+                if (filename.endsWith(".gif")) {
+                    filename = filename.replace(".gif", ".png");
+                }
+
+                mTeams.put(name, filename);
 
             } while (c.moveToNext());
+            c.close();
         }
     }
 
@@ -78,6 +87,7 @@ public class ScoresAdapter extends CursorAdapter {
                 InputStream inputStream = mContext.getResources().getAssets().open(url);
                 drawable = Drawable.createFromStream(inputStream, null);
                 view.setImageDrawable(drawable);
+                inputStream.close();
             } catch (IOException e) {
                 view.setImageDrawable(mContext.getResources().getDrawable(R.mipmap.no_emblem));
             }

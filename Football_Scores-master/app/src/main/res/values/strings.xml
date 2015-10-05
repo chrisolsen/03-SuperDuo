@@ -28,4 +28,8 @@
     <string name="content_description_share_button" formatted="false">Share the %s versus %s game</string>
     <string name="content_description_game_happened" formatted="false">On %s the home team %s played %s with a score of %d to %d</string>
     <string name="content_description_game_upcoming" formatted="false">On %s the home team %s will play %s</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="test_score">1 - 0</string>
+    <string name="no_games">No games scheduled</string>
 </resources>

@@ -193,6 +193,8 @@ public class FetchService extends IntentService {
             values.toArray(insertData);
             this.getContentResolver().bulkInsert(
                     DatabaseContract.ScoresTable.BASE_CONTENT_URI, insertData);
+
+
         } catch (JSONException e) {
             Log.e(TAG, e.getMessage());
         }

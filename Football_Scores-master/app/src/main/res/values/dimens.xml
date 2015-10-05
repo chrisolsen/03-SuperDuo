@@ -6,9 +6,22 @@
     <dimen name="game_card_vertical_padding">24dp</dimen>
     <dimen name="game_card_horizontal_padding">16dp</dimen>
 
+    <dimen name="widget_vertical_padding">12dp</dimen>
+    <dimen name="widget_horizontal_padding">8dp</dimen>
+    <dimen name="widget_emblem_offset">20dp</dimen>
+
     <dimen name="TeamNames">14sp</dimen>
     <dimen name="game_time">14sp</dimen>
     <dimen name="League">14sp</dimen>
     <dimen name="Score">20sp</dimen>
+
+    <!--
+Refer to App Widget Documentation for margin information
+http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
+    -->
+    <dimen name="widget_margin">8dp</dimen>
+    <dimen name="widget_score_size">20dp</dimen>
+    <dimen name="widget_gamedate_size">14dp</dimen>
+    <dimen name="no_games">40dp</dimen>
 
 </resources>

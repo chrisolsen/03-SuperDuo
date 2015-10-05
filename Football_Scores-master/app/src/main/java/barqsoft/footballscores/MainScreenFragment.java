@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import barqsoft.footballscores.service.FetchService;
 
@@ -23,6 +24,8 @@ public class MainScreenFragment extends Fragment implements LoaderManager.Loader
     private static final int SCORES_LOADER = 0;
     private ScoresAdapter mAdapter;
     private String mFragmentDate;
+
+    private TextView mNoResults;
 
     private void updateScores() {
         Log.d(TAG, "updateScores again");
@@ -43,7 +46,8 @@ public class MainScreenFragment extends Fragment implements LoaderManager.Loader
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-        ListView scoreList = (ListView) rootView.findViewById(R.id.scores_list);
+        ListView scoreList = (ListView) rootView.findViewById(android.R.id.list);
+        mNoResults = (TextView) rootView.findViewById(android.R.id.empty);
 
         mAdapter = new ScoresAdapter(getActivity(), null, 0);
 
@@ -55,7 +59,6 @@ public class MainScreenFragment extends Fragment implements LoaderManager.Loader
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-        Log.d(TAG, "onCreateLoader URI " + DatabaseContract.ScoresTable.buildScoreWithDate().toString());
         return new CursorLoader(getActivity(), DatabaseContract.ScoresTable.buildScoreWithDate(),
                 null, null, new String[]{mFragmentDate}, null);
     }
@@ -63,6 +66,7 @@ public class MainScreenFragment extends Fragment implements LoaderManager.Loader
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
         mAdapter.swapCursor(cursor);
+        mNoResults.setVisibility(cursor.getCount() > 0 ? View.INVISIBLE : View.VISIBLE);
     }
 
     @Override

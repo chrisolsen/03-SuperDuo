@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/widget_scores"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:minHeight="40dp"
+    android:paddingBottom="@dimen/widget_vertical_padding"
+    android:paddingEnd="@dimen/widget_horizontal_padding"
+    android:paddingLeft="@dimen/widget_horizontal_padding"
+    android:paddingRight="@dimen/widget_horizontal_padding"
+    android:paddingStart="@dimen/widget_horizontal_padding"
+    android:paddingTop="@dimen/widget_vertical_padding">
+
+    <ImageView
+        android:id="@+id/away_crest"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="@dimen/widget_emblem_offset"
+        android:layout_marginStart="@dimen/widget_emblem_offset"
+        tools:src="@mipmap/no_emblem" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/home_crest"
+        android:layout_toRightOf="@id/away_crest"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/gametime_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/color_text_light"
+            android:textSize="@dimen/widget_gamedate_size"
+            tools:text="@string/test_score" />
+
+        <TextView
+            android:id="@+id/score_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/color_text_light"
+            android:textSize="@dimen/widget_score_size"
+            android:textStyle="bold"
+            tools:text="@string/test_score" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@id/home_crest"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="@dimen/widget_emblem_offset"
+        android:layout_marginRight="@dimen/widget_emblem_offset"
+        tools:src="@mipmap/no_emblem" />
+
+</RelativeLayout>
+
+
+
