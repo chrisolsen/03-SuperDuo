@@ -101,15 +101,6 @@ public class NavigationDrawerFragment extends Fragment {
                 selectItem(position);
             }
         });
-//        mDrawerListView.setAdapter(new ArrayAdapter<String>(
-//                getActionBar().getThemedContext(),
-//                R.layout.navigation_drawer_list_item,
-//                android.R.id.text1,
-//                new String[]{
-//                        getString(R.string.books),
-//                        getString(R.string.scan),
-//                        getString(R.string.about),
-//                }));
 
         mDrawerListView.setAdapter(new NavBarAdapter(getActivity()));
 

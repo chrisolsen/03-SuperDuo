@@ -12,9 +12,9 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import it.jaschke.alexandria.api.Callback;
@@ -22,20 +22,19 @@ import it.jaschke.alexandria.api.Callback;
 
 public class MainActivity extends ActionBarActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks, Callback {
 
+    public static final String MESSAGE_EVENT = "MESSAGE_EVENT";
+    public static final String MESSAGE_KEY = "MESSAGE_EXTRA";
+    private static final String TAG = "MainActivity";
+    public static boolean IS_TABLET = false;
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
     private NavigationDrawerFragment navigationDrawerFragment;
-
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence title;
-    public static boolean IS_TABLET = false;
     private BroadcastReceiver messageReciever;
-
-    public static final String MESSAGE_EVENT = "MESSAGE_EVENT";
-    public static final String MESSAGE_KEY = "MESSAGE_EXTRA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +42,11 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
         IS_TABLET = isTablet();
         if(IS_TABLET){
             setContentView(R.layout.activity_main_tablet);
-        }else {
+        } else {
             setContentView(R.layout.activity_main);
         }
 
-        messageReciever = new MessageReciever();
+        messageReciever = new MessageReceiver();
         IntentFilter filter = new IntentFilter(MESSAGE_EVENT);
         LocalBroadcastManager.getInstance(this).registerReceiver(messageReciever,filter);
 
@@ -57,7 +56,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
         // Set up the drawer.
         navigationDrawerFragment.setUp(R.id.navigation_drawer,
-                    (DrawerLayout) findViewById(R.id.drawer_layout));
+                (DrawerLayout) findViewById(R.id.drawer_layout));
     }
 
     @Override
@@ -128,6 +127,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
     @Override
     protected void onDestroy() {
+        Log.d(TAG, "INthe on destroy");
         LocalBroadcastManager.getInstance(this).unregisterReceiver(messageReciever);
         super.onDestroy();
     }
@@ -151,19 +151,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
     }
 
-    private class MessageReciever extends BroadcastReceiver {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if(intent.getStringExtra(MESSAGE_KEY)!=null){
-                Toast.makeText(MainActivity.this, intent.getStringExtra(MESSAGE_KEY), Toast.LENGTH_LONG).show();
-            }
-        }
-    }
-
-    public void goBack(View view){
-        getSupportFragmentManager().popBackStack();
-    }
-
     private boolean isTablet() {
         return (getApplicationContext().getResources().getConfiguration().screenLayout
                 & Configuration.SCREENLAYOUT_SIZE_MASK)
@@ -176,6 +163,19 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
             finish();
         }
         super.onBackPressed();
+    }
+
+    private class MessageReceiver extends BroadcastReceiver {
+        private static final String TAG = "Message Receiver";
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.d(TAG, "in the broadcast reciever");
+            if (intent.getStringExtra(MESSAGE_KEY) != null) {
+                Log.d(TAG, "in the if");
+                Toast.makeText(MainActivity.this, intent.getStringExtra(MESSAGE_KEY), Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
 

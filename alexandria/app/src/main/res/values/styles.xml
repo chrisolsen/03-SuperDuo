@@ -9,7 +9,7 @@
 
     <style name="NavigationBarIcon">
         <item name="android:textColor">@color/navigation_drawer_font_color</item>
-        <item name="android:alpha">0.54</item>
+        <item name="android:alpha">0.3</item>
     </style>
 
     <style name="NavigationBarText">
@@ -18,4 +18,10 @@
         <item name="android:textColor">@color/navigation_drawer_font_color</item>
         <item name="android:alpha">0.87</item>
     </style>
+
+    <style name="AppTheme.BookTitle">
+        <item name="android:background">@color/book_title_background</item>
+    </style>
+
+    <color name="book_title_background">#33000000</color>
 </resources>

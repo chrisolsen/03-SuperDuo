@@ -30,4 +30,10 @@
     The original version of this app was built by Sascha Jaschke, and a modified version is given to students in the Udacity Android Nanodegree program. </string>
     <string name="no_internet">Unable to connect to the internet</string>
     <string name="search_hint">Search filter</string>
+    <string name="tools_book_desc">Learning a complex new language is no easy task especially when it s an object-oriented computer programming language like Java. You might think the problem is your brain. It seems to have a mind of its own, a mind that doesn\'t always want to take in the dry, technical stuff you\'re forced to study.</string>
+    <string name="tools_book_subtitle">Some subtitle</string>
+    <string name="tools_book_title">Head First Java</string>
+    <string name="message_book_deleted">The book was removed</string>
+    <string name="tools_categories">Java, Object-Orientated Software Design</string>
+    <string name="tools_authors">Kathy Sierra, Bert Bates</string>
 </resources>
