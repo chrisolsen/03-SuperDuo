@@ -1,17 +1,17 @@
 package it.jaschke.alexandria;
 
-import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,12 +20,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
- * See the <a href="https://developer.android.com/design/patterns/navigation-drawer.html#Interaction">
- * design guidelines</a> for a complete explanation of the behaviors implemented here.
+ * See the <a href="https://developer.android.com/design/patterns/navigation-drawer.html#Interaction">design guidelines</a>
+ * and <a href="https://developer.android.com/training/implementing-navigation/nav-drawer.html">code guidelines</a>
+ * for a complete explanation of the behaviors implemented here.
  */
 public class NavigationDrawerFragment extends Fragment {
 
@@ -70,8 +73,6 @@ public class NavigationDrawerFragment extends Fragment {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
         mUserLearnedDrawer = sp.getBoolean(PREF_USER_LEARNED_DRAWER, false);
 
-
-
         if (savedInstanceState != null) {
             mCurrentSelectedPosition = savedInstanceState.getInt(STATE_SELECTED_POSITION);
             mFromSavedInstanceState = true;
@@ -80,7 +81,6 @@ public class NavigationDrawerFragment extends Fragment {
             mCurrentSelectedPosition = Integer.parseInt(prefs.getString("pref_startFragment","0"));
             selectItem(mCurrentSelectedPosition);
         }
-
     }
 
     @Override
@@ -101,15 +101,18 @@ public class NavigationDrawerFragment extends Fragment {
                 selectItem(position);
             }
         });
-        mDrawerListView.setAdapter(new ArrayAdapter<String>(
-                getActionBar().getThemedContext(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                new String[]{
-                        getString(R.string.books),
-                        getString(R.string.scan),
-                        getString(R.string.about),
-                }));
+//        mDrawerListView.setAdapter(new ArrayAdapter<String>(
+//                getActionBar().getThemedContext(),
+//                R.layout.navigation_drawer_list_item,
+//                android.R.id.text1,
+//                new String[]{
+//                        getString(R.string.books),
+//                        getString(R.string.scan),
+//                        getString(R.string.about),
+//                }));
+
+        mDrawerListView.setAdapter(new NavBarAdapter(getActivity()));
+
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
     }
@@ -278,5 +281,42 @@ public class NavigationDrawerFragment extends Fragment {
          * Called when an item in the navigation drawer is selected.
          */
         void onNavigationDrawerItemSelected(int position);
+    }
+
+    private class NavBarAdapter extends ArrayAdapter {
+
+        private int[] icons = {
+                R.drawable.ic_list_black_24dp,
+                R.drawable.ic_add_circle_outline_black_24dp,
+                R.drawable.ic_info_outline_black_24dp,
+        };
+
+        private int[] labels = {
+                R.string.books,
+                R.string.scan,
+                R.string.about,
+        };
+
+        public NavBarAdapter(Context c) {
+            super(c, R.layout.navigation_drawer_list_item);
+        }
+
+        @Override
+        public int getCount() {
+            return icons.length;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View v = getLayoutInflater(null).inflate(R.layout.navigation_drawer_list_item, parent, false);
+
+            ImageView icon = (ImageView) v.findViewById(android.R.id.icon1);
+            icon.setImageResource(icons[position]);
+
+            TextView text = (TextView) v.findViewById(android.R.id.text1);
+            text.setText(labels[position]);
+
+            return v;
+        }
     }
 }

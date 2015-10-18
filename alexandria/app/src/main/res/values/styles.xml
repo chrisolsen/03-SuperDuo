@@ -1,8 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#3F51B5</item>
+        <item name="colorPrimaryDark">#303F9F</item>
+        <item name="colorAccent">#CFD8DC</item>
     </style>
 
+    <style name="NavigationBarIcon">
+        <item name="android:textColor">@color/navigation_drawer_font_color</item>
+        <item name="android:alpha">0.54</item>
+    </style>
+
+    <style name="NavigationBarText">
+        <item name="android:textSize">@dimen/navigation_drawer_font_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/navigation_drawer_font_color</item>
+        <item name="android:alpha">0.87</item>
+    </style>
 </resources>
