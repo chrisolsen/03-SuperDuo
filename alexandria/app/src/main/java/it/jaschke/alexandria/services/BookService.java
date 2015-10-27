@@ -6,19 +6,15 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.v4.content.LocalBroadcastManager;
-import android.util.Log;
 
+import com.google.gson.Gson;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 
 import it.jaschke.alexandria.MainActivity;
 import it.jaschke.alexandria.R;
@@ -35,7 +31,6 @@ public class BookService extends IntentService {
     public static final String FETCH_BOOK = "it.jaschke.alexandria.services.action.FETCH_BOOK";
     public static final String DELETE_BOOK = "it.jaschke.alexandria.services.action.DELETE_BOOK";
     public static final String EAN = "it.jaschke.alexandria.services.extra.EAN";
-    private final String LOG_TAG = BookService.class.getSimpleName();
 
     public BookService() {
         super("Alexandria");
@@ -71,7 +66,7 @@ public class BookService extends IntentService {
      */
     private void fetchBook(String ean) {
 
-        if(ean.length()!=13){
+        if (ean.length() != 13) {
             return;
         }
 
@@ -83,14 +78,13 @@ public class BookService extends IntentService {
                 null  // sort order
         );
 
-        if(bookEntry.getCount()>0){
+        assert bookEntry != null;
+        if (bookEntry.getCount() > 0) {
             bookEntry.close();
             return;
         }
 
         bookEntry.close();
-
-        String bookJsonString = null;
 
         try {
             final String FORECAST_BASE_URL = "https://www.googleapis.com/books/v1/volumes?";
@@ -106,103 +100,84 @@ public class BookService extends IntentService {
             Request request = new Request.Builder().url(url).build();
 
             Response response = client.newCall(request).execute();
-            bookJsonString = response.body().string();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            String json = response.body().string();
 
-        final String ITEMS = "items";
+            Gson gson = new Gson();
+            BookResponse bookResponse = gson.fromJson(json, BookResponse.class);
 
-        final String VOLUME_INFO = "volumeInfo";
-
-        final String TITLE = "title";
-        final String SUBTITLE = "subtitle";
-        final String AUTHORS = "authors";
-        final String DESC = "description";
-        final String CATEGORIES = "categories";
-        final String IMG_URL_PATH = "imageLinks";
-        final String IMG_URL = "thumbnail";
-
-        try {
-            JSONObject bookJson = new JSONObject(bookJsonString);
-            JSONArray bookArray;
-            if(bookJson.has(ITEMS)){
-                bookArray = bookJson.getJSONArray(ITEMS);
-            }else{
+            if (bookResponse.items == null || bookResponse.items.size() == 0) {
                 Intent messageIntent = new Intent(MainActivity.MESSAGE_EVENT);
-                messageIntent.putExtra(MainActivity.MESSAGE_KEY,getResources().getString(R.string.not_found));
+                messageIntent.putExtra(MainActivity.MESSAGE_KEY, getResources().getString(R.string.not_found));
                 LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(messageIntent);
                 return;
             }
 
-            JSONObject bookInfo = ((JSONObject) bookArray.get(0)).getJSONObject(VOLUME_INFO);
+            BookVolumeInfo book = bookResponse.items.get(0).volumeInfo;
+            saveBook(ean, book);
+            if (book.authors != null) saveAuthors(ean, book.authors);
+            if (book.categories != null) saveCategories(ean, book.categories);
 
-            String title = bookInfo.getString(TITLE);
-
-            String subtitle = "";
-            if(bookInfo.has(SUBTITLE)) {
-                subtitle = bookInfo.getString(SUBTITLE);
-            }
-
-            String desc="";
-            if(bookInfo.has(DESC)){
-                desc = bookInfo.getString(DESC);
-            }
-
-            String imgUrl = "";
-            if(bookInfo.has(IMG_URL_PATH) && bookInfo.getJSONObject(IMG_URL_PATH).has(IMG_URL)) {
-                imgUrl = bookInfo.getJSONObject(IMG_URL_PATH).getString(IMG_URL);
-            }
-
-            writeBackBook(ean, title, subtitle, desc, imgUrl);
-
-            if(bookInfo.has(AUTHORS)) {
-                writeBackAuthors(ean, bookInfo.getJSONArray(AUTHORS));
-            }
-            if(bookInfo.has(CATEGORIES)){
-                writeBackCategories(ean,bookInfo.getJSONArray(CATEGORIES) );
-            }
-
-        } catch (JSONException e) {
-            Log.e(LOG_TAG, "Error ", e);
-        } catch (NullPointerException e) {
-            Log.e(LOG_TAG, "Error ", e);
-            Intent messageIntent = new Intent(MainActivity.MESSAGE_EVENT);
-            messageIntent.putExtra(MainActivity.MESSAGE_KEY, getResources().getString(R.string.no_internet));
-            LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(messageIntent);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
     }
 
-    private void writeBackBook(String ean, String title, String subtitle, String desc, String imgUrl) {
-        ContentValues values= new ContentValues();
+    private void saveBook(String ean, BookVolumeInfo book) {
+        ContentValues values = new ContentValues();
+
         values.put(AlexandriaContract.BookEntry._ID, ean);
-        values.put(AlexandriaContract.BookEntry.TITLE, title);
-        values.put(AlexandriaContract.BookEntry.IMAGE_URL, imgUrl);
-        values.put(AlexandriaContract.BookEntry.SUBTITLE, subtitle);
-        values.put(AlexandriaContract.BookEntry.DESC, desc);
-        getContentResolver().insert(AlexandriaContract.BookEntry.CONTENT_URI,values);
+        values.put(AlexandriaContract.BookEntry.TITLE, book.title);
+        values.put(AlexandriaContract.BookEntry.IMAGE_URL, book.imageLinks.thumbnail);
+        values.put(AlexandriaContract.BookEntry.SUBTITLE, book.subtitle);
+        values.put(AlexandriaContract.BookEntry.DESC, book.description);
+
+        getContentResolver().insert(AlexandriaContract.BookEntry.CONTENT_URI, values);
     }
 
-    private void writeBackAuthors(String ean, JSONArray jsonArray) throws JSONException {
-        ContentValues values= new ContentValues();
-        for (int i = 0; i < jsonArray.length(); i++) {
+    private void saveAuthors(String ean, String[] authors) {
+        ContentValues values;
+        for (String author : authors) {
+            values = new ContentValues();
+
             values.put(AlexandriaContract.AuthorEntry._ID, ean);
-            values.put(AlexandriaContract.AuthorEntry.AUTHOR, jsonArray.getString(i));
+            values.put(AlexandriaContract.AuthorEntry.AUTHOR, author);
+
             getContentResolver().insert(AlexandriaContract.AuthorEntry.CONTENT_URI, values);
-            values= new ContentValues();
         }
     }
 
-    private void writeBackCategories(String ean, JSONArray jsonArray) throws JSONException {
-        ContentValues values= new ContentValues();
-        for (int i = 0; i < jsonArray.length(); i++) {
+    private void saveCategories(String ean, String[] categories) {
+        ContentValues values;
+        for (String category : categories) {
+            values = new ContentValues();
+
             values.put(AlexandriaContract.CategoryEntry._ID, ean);
-            values.put(AlexandriaContract.CategoryEntry.CATEGORY, jsonArray.getString(i));
+            values.put(AlexandriaContract.CategoryEntry.CATEGORY, category);
+
             getContentResolver().insert(AlexandriaContract.CategoryEntry.CONTENT_URI, values);
-            values= new ContentValues();
         }
+    }
+
+    private class BookResponse {
+        public List<BookItem> items;
+    }
+
+    private class BookItem {
+        public String kind;
+        public String id;
+        public BookVolumeInfo volumeInfo;
+    }
+
+    private class BookVolumeInfo {
+        public String title;
+        public String subtitle;
+        public String[] authors;
+        public String[] categories;
+        public String description;
+        public BookImageUrls imageLinks;
+    }
+
+    private class BookImageUrls {
+        public String thumbnail;
     }
  }
