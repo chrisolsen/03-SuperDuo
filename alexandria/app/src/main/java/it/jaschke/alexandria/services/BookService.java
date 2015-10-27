@@ -8,15 +8,16 @@ import android.net.Uri;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 import it.jaschke.alexandria.MainActivity;
@@ -89,15 +90,11 @@ public class BookService extends IntentService {
 
         bookEntry.close();
 
-        HttpURLConnection urlConnection = null;
-        BufferedReader reader = null;
         String bookJsonString = null;
 
-        // TODO: use okhttp or retofit instead of this
         try {
             final String FORECAST_BASE_URL = "https://www.googleapis.com/books/v1/volumes?";
             final String QUERY_PARAM = "q";
-
             final String ISBN_PARAM = "isbn:" + ean;
 
             Uri builtUri = Uri.parse(FORECAST_BASE_URL).buildUpon()
@@ -105,42 +102,15 @@ public class BookService extends IntentService {
                     .build();
 
             URL url = new URL(builtUri.toString());
+            OkHttpClient client = new OkHttpClient();
+            Request request = new Request.Builder().url(url).build();
 
-            urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setRequestMethod("GET");
-            urlConnection.connect();
-
-            InputStream inputStream = urlConnection.getInputStream();
-            StringBuffer buffer = new StringBuffer();
-            if (inputStream == null) {
-                return;
-            }
-
-            reader = new BufferedReader(new InputStreamReader(inputStream));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                buffer.append(line);
-                buffer.append("\n");
-            }
-
-            if (buffer.length() == 0) {
-                return;
-            }
-            bookJsonString = buffer.toString();
-        } catch (Exception e) {
-            Log.e(LOG_TAG, "Error ", e);
-        } finally {
-            if (urlConnection != null) {
-                urlConnection.disconnect();
-            }
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (final IOException e) {
-                    Log.e(LOG_TAG, "Error closing stream", e);
-                }
-            }
-
+            Response response = client.newCall(request).execute();
+            bookJsonString = response.body().string();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         final String ITEMS = "items";
