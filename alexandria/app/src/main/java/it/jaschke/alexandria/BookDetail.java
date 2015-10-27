@@ -101,11 +101,13 @@ public class BookDetail extends Fragment implements LoaderManager.LoaderCallback
         TextView bookSubTitleText = (TextView) rootView.findViewById(R.id.bookSubTitle);
         bookSubTitleText.setText(bookSubTitle);
 
-        Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        shareIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
-        shareIntent.setType("text/plain");
-        shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text) + bookTitle);
-        shareActionProvider.setShareIntent(shareIntent);
+        if (shareActionProvider != null) {
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text) + bookTitle);
+            shareActionProvider.setShareIntent(shareIntent);
+        }
 
         String desc = data.getString(data.getColumnIndex(AlexandriaContract.BookEntry.DESC));
         ((TextView) rootView.findViewById(R.id.fullBookDesc)).setText(desc);
