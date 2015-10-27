@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
             case 2:
                 nextFragment = new About();
                 break;
-
         }
 
         fragmentManager.beginTransaction()
