@@ -21,7 +21,7 @@ import it.jaschke.alexandria.api.Callback;
 import it.jaschke.alexandria.data.AlexandriaContract;
 
 
-public class ListOfBooks extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
+public class ListOfBooksFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private final int LOADER_ID = 10;
     private BookListAdapter bookListAdapter;
@@ -29,7 +29,7 @@ public class ListOfBooks extends Fragment implements LoaderManager.LoaderCallbac
     private int position = ListView.INVALID_POSITION;
     private String searchText;
 
-    public ListOfBooks() {
+    public ListOfBooksFragment() {
     }
 
     @Override
@@ -57,14 +57,14 @@ public class ListOfBooks extends Fragment implements LoaderManager.LoaderCallbac
             @Override
             public boolean onQueryTextSubmit(String s) {
                 searchText = s;
-                ListOfBooks.this.restartLoader();
+                ListOfBooksFragment.this.restartLoader();
                 return true;
             }
 
             @Override
             public boolean onQueryTextChange(String s) {
                 searchText = s;
-                ListOfBooks.this.restartLoader();
+                ListOfBooksFragment.this.restartLoader();
                 return true;
             }
         });

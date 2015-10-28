@@ -24,7 +24,7 @@ import it.jaschke.alexandria.data.AlexandriaContract;
 import it.jaschke.alexandria.services.BookService;
 
 
-public class BookDetail extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
+public class BookDetailFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
     public static final String EAN_KEY = "EAN";
     private static final String TAG = "BookDetails";
@@ -33,7 +33,7 @@ public class BookDetail extends Fragment implements LoaderManager.LoaderCallback
     private String ean;
     private ShareActionProvider shareActionProvider;
 
-    public BookDetail(){
+    public BookDetailFragment() {
     }
 
     @Override
@@ -48,7 +48,7 @@ public class BookDetail extends Fragment implements LoaderManager.LoaderCallback
 
         Bundle arguments = getArguments();
         if (arguments != null) {
-            ean = arguments.getString(BookDetail.EAN_KEY);
+            ean = arguments.getString(BookDetailFragment.EAN_KEY);
             getLoaderManager().restartLoader(LOADER_ID, null, this);
         }
 
