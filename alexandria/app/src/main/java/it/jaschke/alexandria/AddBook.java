@@ -9,12 +9,15 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -63,6 +66,9 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
 
         rootView = inflater.inflate(R.layout.fragment_add_book, container, false);
         ean = (EditText) rootView.findViewById(R.id.ean);
+
+        final RelativeLayout bookDetailSection = (RelativeLayout) rootView.findViewById(R.id.bookDetailSection);
+        final LinearLayout bookActionBar = (LinearLayout) rootView.findViewById(R.id.book_action_bar);
 
         ean.addTextChangedListener(new TextWatcher() {
             @Override
@@ -117,7 +123,12 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
                 bookIntent.putExtra(BookService.EAN, ean.getText().toString());
                 bookIntent.setAction(BookService.DELETE_BOOK);
                 getActivity().startService(bookIntent);
+                AddBook.this.restartLoader();
                 ean.setText("");
+
+                Log.d(TAG, "onClick() called with: " + "view = [" + view + "]");
+                bookDetailSection.setVisibility(View.GONE);
+                bookActionBar.setVisibility(View.GONE);
             }
         });
 
@@ -182,8 +193,8 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
         String categories = data.getString(data.getColumnIndex(AlexandriaContract.CategoryEntry.CATEGORY));
         ((TextView) rootView.findViewById(R.id.categories)).setText(categories);
 
-        rootView.findViewById(R.id.save_button).setVisibility(View.VISIBLE);
-        rootView.findViewById(R.id.delete_button).setVisibility(View.VISIBLE);
+        rootView.findViewById(R.id.book_action_bar).setVisibility(View.VISIBLE);
+        rootView.findViewById(R.id.bookDetailSection).setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -197,8 +208,7 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
         ((TextView) rootView.findViewById(R.id.authors)).setText("");
         ((TextView) rootView.findViewById(R.id.categories)).setText("");
         rootView.findViewById(R.id.bookCover).setVisibility(View.INVISIBLE);
-        rootView.findViewById(R.id.save_button).setVisibility(View.INVISIBLE);
-        rootView.findViewById(R.id.delete_button).setVisibility(View.INVISIBLE);
+        rootView.findViewById(R.id.book_action_bar).setVisibility(View.INVISIBLE);
     }
 
     @Override

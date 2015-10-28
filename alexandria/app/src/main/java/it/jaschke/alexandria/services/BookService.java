@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.v4.content.LocalBroadcastManager;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.squareup.okhttp.OkHttpClient;
@@ -56,7 +57,11 @@ public class BookService extends IntentService {
      */
     private void deleteBook(String ean) {
         if(ean!=null) {
-            getContentResolver().delete(AlexandriaContract.BookEntry.buildBookUri(Long.parseLong(ean)), null, null);
+            try {
+                getContentResolver().delete(AlexandriaContract.BookEntry.buildBookUri(Long.parseLong(ean)), null, null);
+            } catch (NumberFormatException ex) {
+                Toast.makeText(this, R.string.invalid_ean, Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -114,8 +119,6 @@ public class BookService extends IntentService {
 
             BookVolumeInfo book = bookResponse.items.get(0).volumeInfo;
             saveBook(ean, book);
-            if (book.authors != null) saveAuthors(ean, book.authors);
-            if (book.categories != null) saveCategories(ean, book.categories);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -134,6 +137,13 @@ public class BookService extends IntentService {
         }
 
         getContentResolver().insert(AlexandriaContract.BookEntry.CONTENT_URI, values);
+
+        if (book.authors != null) saveAuthors(ean, book.authors);
+        if (book.categories != null) saveCategories(ean, book.categories);
+
+        Intent messageIntent = new Intent(MainActivity.MESSAGE_EVENT);
+        messageIntent.putExtra(MainActivity.MESSAGE_KEY, getResources().getString(R.string.book_added));
+        LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(messageIntent);
     }
 
     private void saveAuthors(String ean, String[] authors) {

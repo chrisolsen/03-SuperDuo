@@ -28,6 +28,7 @@ public class BookProvider extends ContentProvider {
     private static final int BOOK_FULLDETAIL = 501;
 
     private static final UriMatcher uriMatcher = buildUriMatcher();
+    private static final String TAG = "BookProvider";
 
     private DbHelper dbHelper;
 
@@ -272,6 +273,7 @@ public class BookProvider extends ContentProvider {
         }
         // Because a null deletes all rows
         if (selection == null || rowsDeleted != 0) {
+            Log.d(TAG, "delete() called with: " + "uri = [" + uri + "], selection = [" + selection + "], selectionArgs = [" + selectionArgs + "]");
             getContext().getContentResolver().notifyChange(uri, null);
         }
         return rowsDeleted;
