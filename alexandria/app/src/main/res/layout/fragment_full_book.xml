@@ -19,6 +19,7 @@
             tools:src="@drawable/book" />
 
         <LinearLayout
+            android:id="@+id/book_details"
             style="@style/AppTheme.BookTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/delete_button"
-            android:layout_below="@id/fullBookCover">
+            android:layout_below="@id/book_details">
 
             <LinearLayout
                 android:layout_width="match_parent"

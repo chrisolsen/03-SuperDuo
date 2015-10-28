@@ -34,5 +34,5 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <color name="book_title_background">#33000000</color>
+    <color name="book_title_background">#99000000</color>
 </resources>
