@@ -127,9 +127,11 @@ public class BookService extends IntentService {
 
         values.put(AlexandriaContract.BookEntry._ID, ean);
         values.put(AlexandriaContract.BookEntry.TITLE, book.title);
-        values.put(AlexandriaContract.BookEntry.IMAGE_URL, book.imageLinks.thumbnail);
         values.put(AlexandriaContract.BookEntry.SUBTITLE, book.subtitle);
         values.put(AlexandriaContract.BookEntry.DESC, book.description);
+        if (book.imageLinks != null) {
+            values.put(AlexandriaContract.BookEntry.IMAGE_URL, book.imageLinks.thumbnail);
+        }
 
         getContentResolver().insert(AlexandriaContract.BookEntry.CONTENT_URI, values);
     }

@@ -31,7 +31,11 @@ public class BookListAdapter extends CursorAdapter {
         ViewHolder viewHolder = (ViewHolder) view.getTag();
 
         String imgUrl = cursor.getString(cursor.getColumnIndex(AlexandriaContract.BookEntry.IMAGE_URL));
-        Picasso.with(context).load(imgUrl).into(viewHolder.bookCover);
+        if (imgUrl != null) {
+            Picasso.with(context).load(imgUrl).into(viewHolder.bookCover);
+        } else {
+            Picasso.with(context).load(R.mipmap.ic_no_photo).into(viewHolder.bookCover);
+        }
 
         String bookTitle = cursor.getString(cursor.getColumnIndex(AlexandriaContract.BookEntry.TITLE));
         viewHolder.bookTitle.setText(bookTitle);
